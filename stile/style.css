@@ -12,10 +12,24 @@ body {
     height: 80vh;
 }
 
+/* Utils */
+
+/* Generics */
+
+header {
+    height: 65px;
+    background-color: #eaeaea;
+}
+
+.row {
+    --bs-gutter-x: 0;
+}
+
 /* left div */
 
 #chats-container {
-    background-color: blue;
+    background-color: white;
+    border-right: 1px solid blue;
 }
 
 
@@ -25,8 +39,25 @@ body {
 
 
 #current-chat-container {
-    background-color: yellow;
+    background-image:url(/img/mine.jpg);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
