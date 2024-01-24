@@ -15,33 +15,31 @@ const app = createApp ({
             return this.data.contacts
         },
         currentContact() {
-             const currentContact = this.contacts.find((contact) => {
-                if (this.userID === contact.id) {
-                    return contact
-                }
+            return this.contacts.find((contact) => {
+                if (this.userID === contact.id) return contact
             })
-            return currentContact
         },
         messages() {
             const currentContact = this.currentContact
             return currentContact.messages
-        }
+        },
+        
             
     },
     methods: {
         getCurrentContact(id) {
-            console.log('id premuto:' + id)
-            console.log('userId prima:' + this.userID)
              this.contacts.forEach((contact) => {
                 if (id === contact.id) {
-                    console.log('è uguale')
                     this.userID = contact.id
-                    console.log('userId dopo:' +this.userID)
                     return
                 } 
             })
 
         },
+        isSent(status) {
+            return status === 'sent' 
+        }
+        
         
     }
 
