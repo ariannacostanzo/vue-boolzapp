@@ -40,7 +40,8 @@ const app = createApp ({
                 const filteredLower = this.filteredName.toLowerCase();
                 return lowerName.includes(filteredLower)
             })
-        }     
+        },
+         
     },
     methods: {
         getCurrentContact(id) {
@@ -81,7 +82,12 @@ const app = createApp ({
         },
         setFullNumbers(value) {
             return value.toString().padStart(2, '0')
-        }
+        },
+        cutMessage(contact) {
+            const lastMessage = contact.messages[contact.messages.length - 1].text
+            const cutMessage = lastMessage.slice(0, 12) + '...'
+            return cutMessage
+        }   
     }
 
 

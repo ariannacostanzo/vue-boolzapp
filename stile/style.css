@@ -102,7 +102,6 @@ input:focus-visible {
 
 #left-container {
     background-color: white;
-    border-right: 1px solid blue;
     height: 80vh;
 
     overflow: hidden;
@@ -228,7 +227,7 @@ input:focus-visible {
 .last-date {
     align-self: flex-start;
     color: grey;
-    font-size: .9rem;
+    font-size: .7rem;
 }
 
 

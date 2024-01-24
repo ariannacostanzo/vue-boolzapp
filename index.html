@@ -58,7 +58,7 @@
                         <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name" class="user-img chat-img">
                         <div class="contact-info">
                             <p class="user-name">{{contact.name}}</p>
-                            <p class="last-message">{{contact.messages[contact.messages.length - 1].text}}</p>
+                            <p class="last-message">{{cutMessage(contact)}}</p>
                         </div>
                         <p class="last-date">{{contact.messages[contact.messages.length - 1].date}}</p>
                     </li>
@@ -119,3 +119,4 @@
 <!-- sistemare la data in modo che i numeri non decimali mostrino lo 0 -->
 <!-- fare delle risposte diverse -->
 <!-- nell'ultimo accesso fare che se accede oggi invece della data c'è scritto oggi e l'orario -->
+<!-- se lui scrive dice sta scrivendo -->
