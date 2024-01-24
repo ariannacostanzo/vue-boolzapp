@@ -202,12 +202,33 @@ input:focus-visible {
 
 #chats-container li {
     display: flex;
+    justify-content: space-between;
     gap: 20px;
     padding: .5rem 1rem;
     margin-bottom: 2px;
     background-color: white;
     cursor: pointer;
     
+    
+}
+
+.contact-info {
+    flex-grow: 1;
+}
+
+#chats-container li:hover {
+    background-color: #e9ebeb;
+}
+
+.last-message {
+    color: grey;
+    font-size: .9rem;
+}
+
+.last-date {
+    align-self: flex-start;
+    color: grey;
+    font-size: .9rem;
 }
 
 
@@ -244,6 +265,7 @@ input:focus-visible {
     width: 300px;
     padding: 1rem .7rem .3rem 1rem;
     margin-bottom: .7rem;
+    word-break: break-all;
 
 }
 

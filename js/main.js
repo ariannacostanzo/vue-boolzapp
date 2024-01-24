@@ -28,7 +28,6 @@ const app = createApp ({
         currentDate() {
             let currentFullDate = ''
             const now = new Date;
-
             const currentDate = `${this.setFullNumbers(now.getDate())}/${this.setFullNumbers(now.getMonth() + 1)}/${now.getFullYear()}`;
             const currentTime = `${this.setFullNumbers(now.getHours())}:${this.setFullNumbers(now.getMinutes())}:${this.setFullNumbers(now.getSeconds())}`;
             currentFullDate = `${currentDate} ${currentTime}`
@@ -41,9 +40,7 @@ const app = createApp ({
                 const filteredLower = this.filteredName.toLowerCase();
                 return lowerName.includes(filteredLower)
             })
-        }
-        
-            
+        }     
     },
     methods: {
         getCurrentContact(id) {
@@ -53,7 +50,6 @@ const app = createApp ({
                     return
                 } 
             })
-
         },
         isSent(status) {
             return status === 'sent' 
@@ -86,11 +82,7 @@ const app = createApp ({
         setFullNumbers(value) {
             return value.toString().padStart(2, '0')
         }
-        
-        
     }
-
-
 
 
 });

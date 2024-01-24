@@ -56,11 +56,12 @@
                 <ul>
                     <li v-for="contact in filteredContacts" :key="contact.avatar" @click="getCurrentContact(contact.id)">
                         <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name" class="user-img chat-img">
-                        <p class="user-name">{{contact.name}}</p>
+                        <div class="contact-info">
+                            <p class="user-name">{{contact.name}}</p>
+                            <p class="last-message">{{contact.messages[contact.messages.length - 1].text}}</p>
+                        </div>
+                        <p class="last-date">{{contact.messages[contact.messages.length - 1].date}}</p>
                     </li>
-                   
-                    
-                    
                 </ul>
             </div>
 
