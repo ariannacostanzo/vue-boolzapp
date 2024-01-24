@@ -17,7 +17,7 @@ body {
 /* Generics */
 
 header {
-    height: 65px;
+    height: 70px;
     background-color: #eaeaea;
     padding: 0 1rem;
 
@@ -33,9 +33,25 @@ header {
 
 /* common properties */
 
+.header-img {
+    width: 50px;
+    border-radius: 50%;
+}
 
+.user-name {
+    font-weight: 500;
+}
 
+.user-time {
+    color: rgba(0, 0, 0, 0.507);
+    font-size: .9rem;
+}
 
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
 /* left div */
 
