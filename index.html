@@ -23,7 +23,7 @@
 
 
     <div id="root" class="row">
-        <div id="chats-container" class="col-4">
+        <div id="left-container" class="col-4">
             <!-- header -->
             <header>
                 <!-- info user -->
@@ -40,7 +40,7 @@
                     <i class="fa-solid fa-ellipsis-vertical ms-2"></i>
                 </div>
             </header>
-            <div class="notification-container">
+            <div id="notification-container">
                 <div><i class="fa-solid fa-bell-slash"></i></div>
                 <div>
                     <p class="fw-semibold">Ricevi notifiche di nuovi messaggi</p>
@@ -48,10 +48,11 @@
                 </div>
                 
             </div>
-            <div class="searchbar-container">
-                searchbar
+            <div id="searchbar-container">
+                <div class="searchbar-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+                <input type="text" placeholder="Cerca o inizia una nuova chat">
             </div>
-            <div class="chats-container">
+            <div id="chats-container">
                 chats
             </div>
 
@@ -61,7 +62,7 @@
 
 
         </div>
-        <div id="current-chat-container" class="col-8">
+        <div id="right-container" class="col-8">
             <!-- header -->
             <header>
                 <!-- info user -->
@@ -80,7 +81,7 @@
                 </div>
             </header>
             <!-- current chat -->
-            <section id="current-chat">
+            <section id="current-chat-container">
                 chat
             </section>
             <!-- footer -->

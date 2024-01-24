@@ -33,6 +33,7 @@ header {
 .row {
     --bs-gutter-x: 0;
 }
+
 i {
     cursor: pointer;
 }
@@ -73,14 +74,23 @@ i {
 
 
 
+/* ---------------------------------------------- */
+/* CHATS CONTAINER */
 /* left div */
+/* ---------------------------------------------- */
 
-#chats-container {
+
+
+#left-container {
     background-color: white;
     border-right: 1px solid blue;
 }
 
-.notification-container {
+
+/* notifications */
+
+
+#notification-container {
     background-color: #8edafc;
     height: 80px;
     padding: 0 1rem;
@@ -90,7 +100,7 @@ i {
     gap: 10px;
 }
 
-.notification-container div:first-child {
+#notification-container div:first-child {
     background-color: white;
     color: #8edafc;
     font-size: 1.3rem;
@@ -103,26 +113,71 @@ i {
     justify-content: center;
 }
 
-.notification-container p:nth-of-type(2) {
+#notification-container p:nth-of-type(2) {
     color: rgba(0, 0, 0, 0.507);
     font-size: .9rem;
     text-decoration: underline;
     cursor: pointer;
 }
 
+
+/* searchbar */
+
+
+#searchbar-container {
+    background-color: #fafafa;
+    padding: 0 .5rem;
+    height: 50px;
+    border-radius: 2px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchbar-icon {
+    background-color: white;
+    height: 33px;
+    border-radius: 2px 0 0 2px;
+    width: 50px;
+    color: #b1b1b1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#searchbar-container input {
+    width: 100%;
+    border: 0;
+    border-radius: 0px 2px 2px 0;
+    padding: .3rem 0;
+}
+
+#searchbar-container ::placeholder {
+    font-size: .9rem;
+}
+
+/* chats */
+
+
+
+
 /* ---------------------------------------------- */
 /* CURRENT CHAT CONTAINER */
 /* right div */
 /* ---------------------------------------------- */
 
-#current-chat-container {
+
+
+#right-container {
     background-image:url(/img/mine.jpg);
     display: flex;
     flex-direction: column;
 }
 
 
-#current-chat {
+#current-chat-container {
     flex-grow: 1;
     overflow-y: scroll;
 }
@@ -163,14 +218,6 @@ footer {
 ::placeholder {
     padding-left: 15px;
 }
-
-
-
-
-
-
-
-
 
 
 
