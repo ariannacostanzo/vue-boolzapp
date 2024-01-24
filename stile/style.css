@@ -74,26 +74,59 @@ header {
 }
 
 
-
-
+/* ---------------------------------------------- */
+/* CURRENT CHAT CONTAINER */
 /* right div */
-
+/* ---------------------------------------------- */
 
 #current-chat-container {
     background-image:url(/img/mine.jpg);
+    display: flex;
+    flex-direction: column;
 }
 
 
+#current-chat {
+    flex-grow: 1;
+}
 
 
+footer {
+    background-color: #f3eeea;
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+}
 
 
+.footer-icon {
+    width: 80px;
+    font-size: 1.5rem;
+    /* background-color: red; */
+    color: #6b7376;
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+.footer-new-text {
+    flex-grow: 1;
+    background-color: white;
+    border-radius: 5px;
+}
 
+.footer-new-text input {
+    width: 100%;
+    border: 0;
+    padding: .75rem 0;
+    border-radius: 5px;
+}
 
-
-
+::placeholder {
+    padding-left: 15px;
+}
 
 
 
