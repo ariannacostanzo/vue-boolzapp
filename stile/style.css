@@ -53,6 +53,19 @@ header {
     gap: 10px;
 }
 
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 1.4rem;
+    color: #b1b1b1;
+    
+}
+
+.header-icons i {
+    cursor: pointer;
+}
+
 /* left div */
 
 #chats-container {
