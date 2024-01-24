@@ -25,16 +25,14 @@ const app = createApp ({
             return currentContact.messages
         },
         currentDate() {
-            let currentDate = ''
+            let currentFullDate = ''
             const now = new Date;
-            const dayMonthYear = now.toLocaleDateString();
-            const hour = now.getHours();
-            const minutes = now.getMinutes();
-            const seconds = now.getSeconds();
 
-            currentDate = `${dayMonthYear} ${hour}:${minutes}:${seconds}`
+            const currentDate = `${this.setFullNumbers(now.getDate())}/${this.setFullNumbers(now.getMonth() + 1)}/${now.getFullYear()}`;
+            const currentTime = `${this.setFullNumbers(now.getHours())}:${this.setFullNumbers(now.getMinutes())}:${this.setFullNumbers(now.getSeconds())}`;
+            currentFullDate = `${currentDate} ${currentTime}`
+            return currentFullDate
 
-            return currentDate
         }
         
             
@@ -62,6 +60,9 @@ const app = createApp ({
 
             this.messages.push(newMessage)
             this.textSent =''
+        },
+        setFullNumbers(value) {
+            return value.toString().padStart(2, '0')
         }
         
         
@@ -74,4 +75,8 @@ const app = createApp ({
 
 
 app.mount('#root');
+
+
+
+
 
