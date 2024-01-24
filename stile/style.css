@@ -9,6 +9,36 @@ body {
 #root {
     margin: 4rem auto;
     width: 70vw;
-    background-color: red;
     height: 80vh;
+}
+
+/* left div */
+
+#chats-container {
+    background-color: blue;
+}
+
+
+
+
+/* right div */
+
+
+#current-chat-container {
+    background-color: yellow;
+}
+
+
+
+
+
+
+
+/* media query */
+
+@media screen and (max-width:1500px) {
+    #root {
+        width: 80vw;
+    }
+
 }
