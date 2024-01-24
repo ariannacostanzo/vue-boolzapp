@@ -14,24 +14,34 @@ const app = createApp ({
         contacts() {
             return this.data.contacts
         },
-        // messages() {
-        //     return this.contacts.messages
-        // }
+        messages() {
+            return this.contacts.filter((contact) => {
+                if (this.userID === contact.id) {
+                    console.log(this.userID)
+                    console.log(contact.messages)
+                    return contact.messages
+                }
+            })
+        }
             
     },
     methods: {
-        filteredMessages(id) {
-            console.log(id)
-            const filteredMessages = this.contacts.filter((contact) => {
+        getCurrentContact(id) {
+            console.log('id premuto:' + id)
+            console.log('userId prima:' + this.userID)
+             this.contacts.forEach((contact) => {
                 if (id === contact.id) {
                     console.log('è uguale')
-                } else {
-                    console.log(' non è uguale')
-                }
+                    this.userID = contact.id
+                    console.log(contact.messages)
+                    console.log('userId dopo:' +this.userID)
+                    return
+                } 
             })
 
-            console.log(filteredMessages)
-            return filteredMessages
+        },
+        printMessages(id) {
+
         }
     }
 
@@ -42,3 +52,5 @@ const app = createApp ({
 
 
 app.mount('#root');
+
+//al click di una chat devo fare in modo che appaia l'oggetto messaggi di quella persona
