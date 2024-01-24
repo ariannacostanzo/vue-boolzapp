@@ -89,9 +89,11 @@
             <!-- current chat -->
             <section id="current-chat-container">
                 
+                <!-- da sistemare l'event ok click -->
                 <div v-for="message in messages" class="message" :class="isSent(message.status) ? 'sent' : 'received'" :key="message.id" @click="showDelete(message)">
                     <p class="message-text">{{message.text}}</p>
                     <p class="message-time">{{message.date}}</p>
+                    <!-- da sistemare il v-show -->
                     <div v-show="checkIdMessage(message.id)" class="delete-container">
                         <p>Info messaggio</p>
                         <p>Cancella messaggio</p>
@@ -126,3 +128,5 @@
 <!-- nell'ultimo accesso fare che se accede oggi invece della data c'è scritto oggi e l'orario -->
 <!-- se lui scrive dice sta scrivendo -->
 <!-- fare una x per eliminare il filtro -->
+<!-- fare che cliccando di nuovo il message il menu di eliminare si nasconde -->
+<!-- sistemare meglio il div che si apre solo al messaggio di quel contatto -->
