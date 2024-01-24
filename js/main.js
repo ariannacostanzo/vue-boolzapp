@@ -51,15 +51,29 @@ const app = createApp ({
             return status === 'sent' 
         },
         sendMessage() {
-            const newMessage = {
+            const newMessageSent = {
                 id: new Date().toISOString(),
                 date: this.currentDate,
                 text: this.textSent,
                 status: 'sent'
             }
 
-            this.messages.push(newMessage)
+            this.messages.push(newMessageSent)
             this.textSent =''
+
+            const newMessageReceived = {
+                id: new Date().toISOString(),
+                date: this.currentDate,
+                text: 'ok!',
+                status: 'received'
+            }
+
+            const receiveText = setInterval(() => {
+                this.messages.push(newMessageReceived)
+                clearInterval(receiveText)
+            }, 1000)
+            
+
         },
         setFullNumbers(value) {
             return value.toString().padStart(2, '0')
