@@ -69,7 +69,7 @@ const app = createApp ({
             const newMessageReceived = {
                 id: new Date().toISOString(),
                 date: this.currentDate,
-                text: 'ok!',
+                text: 'Grazie per avermelo ricordato, le scrivo subito! ciao ciao ciao razie per avermelo ricordato, le scrivo subito! ci razie per avermelo ricordato, le scrivo subito! ci razie per avermelo ricordato, le scrivo subito! ci',
                 status: 'received'
             }
 
@@ -85,7 +85,7 @@ const app = createApp ({
         },
         cutMessage(contact) {
             const lastMessage = contact.messages[contact.messages.length - 1].text
-            const cutMessage = lastMessage.slice(0, 12) + '...'
+            const cutMessage = lastMessage.slice(0, 95) + '...'
             return cutMessage
         }   
     }

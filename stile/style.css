@@ -201,19 +201,17 @@ input:focus-visible {
 
 #chats-container li {
     display: flex;
-    justify-content: space-between;
     gap: 20px;
     padding: .5rem 1rem;
     margin-bottom: 2px;
     background-color: white;
     cursor: pointer;
+    position: relative;
     
     
 }
 
-.contact-info {
-    flex-grow: 1;
-}
+
 
 #chats-container li:hover {
     background-color: #e9ebeb;
@@ -228,6 +226,9 @@ input:focus-visible {
     align-self: flex-start;
     color: grey;
     font-size: .7rem;
+
+    position: absolute;
+    right: 16px;
 }
 
 
