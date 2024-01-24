@@ -50,11 +50,11 @@
             </div>
             <div id="searchbar-container">
                 <div class="searchbar-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
-                <input type="text" placeholder="Cerca o inizia una nuova chat">
+                <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="filteredName">
             </div>
             <div id="chats-container">
                 <ul>
-                    <li v-for="contact in contacts" :key="contact.avatar" @click="getCurrentContact(contact.id)">
+                    <li v-for="contact in filteredContacts" :key="contact.avatar" @click="getCurrentContact(contact.id)">
                         <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name" class="user-img chat-img">
                         <p class="user-name">{{contact.name}}</p>
                     </li>
@@ -66,9 +66,6 @@
 
             
             
-
-
-
         </div>
         <div id="right-container" class="col-8">
             <!-- header -->
@@ -119,3 +116,4 @@
 
 <!-- sistemare la scrollbar di sinistra -->
 <!-- sistemare la data in modo che i numeri non decimali mostrino lo 0 -->
+<!-- fare delle risposte diverse -->

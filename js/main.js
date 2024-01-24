@@ -9,6 +9,7 @@ const app = createApp ({
             data,
             userID: 1,
             textSent: '',
+            filteredName: ''
         }
     },
     computed: {
@@ -33,6 +34,13 @@ const app = createApp ({
             currentFullDate = `${currentDate} ${currentTime}`
             return currentFullDate
 
+        },
+        filteredContacts() {
+            return this.contacts.filter((contact) => {
+                const lowerName = contact.name.toLowerCase();
+                const filteredLower = this.filteredName.toLowerCase();
+                return lowerName.includes(filteredLower)
+            })
         }
         
             
