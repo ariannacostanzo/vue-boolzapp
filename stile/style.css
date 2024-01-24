@@ -16,6 +16,16 @@ body {
 
 /* Generics */
 
+ul li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    padding: 0;
+}
+
 p {
     margin: 0;
 }
@@ -84,6 +94,10 @@ i {
 #left-container {
     background-color: white;
     border-right: 1px solid blue;
+    height: 80vh;
+
+    overflow: hidden;
+
 }
 
 
@@ -160,7 +174,32 @@ i {
 
 /* chats */
 
+#chats-container {
+    background-color: white;
+    overflow-y: scroll;
+    height: 72.5%;
+    
+}
 
+.chat-img {
+    width: 65px;
+}
+
+
+#chats-container ul {
+    background-color: #fafafa;
+    
+}
+
+#chats-container li {
+    display: flex;
+    gap: 20px;
+    padding: .5rem 1rem;
+    margin-bottom: 2px;
+    background-color: white;
+    cursor: pointer;
+    
+}
 
 
 /* ---------------------------------------------- */
@@ -174,6 +213,7 @@ i {
     background-image:url(/img/mine.jpg);
     display: flex;
     flex-direction: column;
+    height: 80vh;
 }
 
 
