@@ -1,6 +1,14 @@
-body {
+html {
     height: 100vh;
     width: 100vw;
+}
+body {
     background: linear-gradient(to top, #dbdbd2 88%, #009688 1%);
 }
 
+#root {
+    margin: 4rem auto;
+    width: 70vw;
+    background-color: red;
+    height: 80vh;
+}
