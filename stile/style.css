@@ -225,7 +225,43 @@ i {
 #current-chat-container {
     flex-grow: 1;
     overflow-y: scroll;
+    padding: 2rem 4rem;
+
+    display: flex;
+    flex-direction: column;
+    
 }
+
+/* messaggi */
+
+.message {
+
+    border-radius: 10px;
+    width: 300px;
+    padding: 1rem 1rem .3rem 1rem;
+    margin-bottom: .7rem;
+
+}
+
+.message.sent {
+    background-color: #d5f9ba;
+    align-self: flex-end;
+    
+}
+
+.message.received {
+    background-color: white;
+    align-self: flex-start;
+}
+
+.message-time {
+    font-size: .7rem;
+    text-align: right;
+    color: rgba(128, 128, 128, 0.733);
+}
+
+
+/* footer */
 
 
 footer {
@@ -234,6 +270,7 @@ footer {
 
     display: flex;
     align-items: center;
+    
 }
 
 
@@ -263,6 +300,8 @@ footer {
 ::placeholder {
     padding-left: 15px;
 }
+
+
 
 
 
