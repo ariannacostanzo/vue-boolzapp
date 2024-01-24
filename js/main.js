@@ -51,16 +51,3 @@ const app = createApp ({
 
 app.mount('#root');
 
-//al click di una chat devo fare in modo che appaia l'oggetto messaggi di quella persona
-
-
-contatti = data.contacts
-
-contatti.forEach((item) => {
-
-    console.log(item)
-
-    console.log( item.messages)
-   
-
-}) 
