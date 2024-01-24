@@ -16,6 +16,10 @@ body {
 
 /* Generics */
 
+p {
+    margin: 0;
+}
+
 header {
     height: 70px;
     background-color: #eaeaea;
@@ -76,6 +80,35 @@ i {
     border-right: 1px solid blue;
 }
 
+.notification-container {
+    background-color: #8edafc;
+    height: 80px;
+    padding: 0 1rem;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.notification-container div:first-child {
+    background-color: white;
+    color: #8edafc;
+    font-size: 1.3rem;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.notification-container p:nth-of-type(2) {
+    color: rgba(0, 0, 0, 0.507);
+    font-size: .9rem;
+    text-decoration: underline;
+    cursor: pointer;
+}
 
 /* ---------------------------------------------- */
 /* CURRENT CHAT CONTAINER */
@@ -107,7 +140,6 @@ footer {
 .footer-icon {
     width: 80px;
     font-size: 1.5rem;
-    /* background-color: red; */
     color: #6b7376;
 
     display: flex;
