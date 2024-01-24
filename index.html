@@ -73,10 +73,10 @@
             <header>
                 <!-- info user -->
                 <div class="user-info">
-                    <img src="img/avatar_1.jpg" alt="" class="user-img header-img">
+                    <img :src="`img/avatar${currentContact.avatar}.jpg`" :alt="currentContact.name" class="user-img header-img">
                     <div class="user-name-time">
-                        <p class="user-name">Michele</p>
-                        <p class="user-time">Ultimo accesso oggi alle</p>
+                        <p class="user-name">{{currentContact.name}}</p>
+                        <p class="user-time">Ultimo accesso <span>{{currentContact.messages[currentContact.messages.length - 1].date}}</span></p>
                     </div>
                 </div>
                 <!-- icone -->
@@ -118,3 +118,4 @@
 <!-- sistemare la scrollbar di sinistra -->
 <!-- sistemare la data in modo che i numeri non decimali mostrino lo 0 -->
 <!-- fare delle risposte diverse -->
+<!-- nell'ultimo accesso fare che se accede oggi invece della data c'è scritto oggi e l'orario -->
