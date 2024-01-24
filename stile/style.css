@@ -29,13 +29,18 @@ header {
 .row {
     --bs-gutter-x: 0;
 }
+i {
+    cursor: pointer;
+}
 
+.user-img {
+    border-radius: 50%;
+}
 
 /* common properties */
 
 .header-img {
     width: 50px;
-    border-radius: 50%;
 }
 
 .user-name {
@@ -62,9 +67,7 @@ header {
     
 }
 
-.header-icons i {
-    cursor: pointer;
-}
+
 
 /* left div */
 
@@ -88,6 +91,7 @@ header {
 
 #current-chat {
     flex-grow: 1;
+    overflow-y: scroll;
 }
 
 
