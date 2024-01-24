@@ -98,7 +98,7 @@
                     <p class="message-text">Ciao hai portato a spasso il canaaaaaa</p>
                     <p class="message-time">10/01/2020 15.30.00</p>
                 </div> -->
-                <div v-for="message in messages" class="message sent" >
+                <div v-for="message in messages" class="message sent" :key="message.id">
                     <p class="message-text">{{message.text}}</p>
                     <p class="message-time">{{message.date}}</p>
                 </div>

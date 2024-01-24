@@ -7,21 +7,24 @@ const app = createApp ({
     data() {
         return {
             data,
-            userID: 0,
+            userID: 1,
         }
     },
     computed: {
         contacts() {
             return this.data.contacts
         },
-        messages() {
-            return this.contacts.filter((contact) => {
+        currentContact() {
+             const currentContact = this.contacts.find((contact) => {
                 if (this.userID === contact.id) {
-                    console.log(this.userID)
-                    console.log(contact.messages)
-                    return contact.messages
+                    return contact
                 }
             })
+            return currentContact
+        },
+        messages() {
+            const currentContact = this.currentContact
+            return currentContact.messages
         }
             
     },
@@ -33,16 +36,13 @@ const app = createApp ({
                 if (id === contact.id) {
                     console.log('è uguale')
                     this.userID = contact.id
-                    console.log(contact.messages)
                     console.log('userId dopo:' +this.userID)
                     return
                 } 
             })
 
         },
-        printMessages(id) {
-
-        }
+        
     }
 
 
@@ -54,3 +54,15 @@ const app = createApp ({
 app.mount('#root');
 
 //al click di una chat devo fare in modo che appaia l'oggetto messaggi di quella persona
+
+
+contatti = data.contacts
+
+contatti.forEach((item) => {
+
+    console.log(item)
+
+    console.log( item.messages)
+   
+
+}) 
