@@ -102,7 +102,7 @@
             <!-- footer -->
             <footer>
                 <div class="footer-icon"><i class="fa-regular fa-face-smile"></i></div>
-                <div class="footer-new-text"><input type="text" placeholder="Scrivi un messaggio"></div>
+                <div class="footer-new-text"><input type="text" placeholder="Scrivi un messaggio" autofocus v-model="textSent" @keyup.enter="sendMessage"></div>
                 <div class="footer-icon"><i class="fa-solid fa-microphone"></i></div>
             </footer>
             
@@ -118,3 +118,4 @@
 
 
 <!-- sistemare la scrollbar di sinistra -->
+<!-- sistemare la data in modo che i numeri non decimali mostrino lo 0 -->

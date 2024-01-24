@@ -8,6 +8,7 @@ const app = createApp ({
         return {
             data,
             userID: 1,
+            textSent: '',
         }
     },
     computed: {
@@ -20,9 +21,21 @@ const app = createApp ({
             })
         },
         messages() {
-            const currentContact = this.currentContact
+            const currentContact = this.currentContact;
             return currentContact.messages
         },
+        currentDate() {
+            let currentDate = ''
+            const now = new Date;
+            const dayMonthYear = now.toLocaleDateString();
+            const hour = now.getHours();
+            const minutes = now.getMinutes();
+            const seconds = now.getSeconds();
+
+            currentDate = `${dayMonthYear} ${hour}:${minutes}:${seconds}`
+
+            return currentDate
+        }
         
             
     },
@@ -38,6 +51,17 @@ const app = createApp ({
         },
         isSent(status) {
             return status === 'sent' 
+        },
+        sendMessage() {
+            const newMessage = {
+                id: new Date().toISOString(),
+                date: this.currentDate,
+                text: this.textSent,
+                status: 'sent'
+            }
+
+            this.messages.push(newMessage)
+            this.textSent =''
         }
         
         

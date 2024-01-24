@@ -57,6 +57,10 @@ i {
     border-radius: 50%;
 }
 
+input:focus-visible {
+    outline: 0;
+}
+
 /* common properties */
 
 .header-img {
@@ -293,13 +297,12 @@ footer {
 .footer-new-text input {
     width: 100%;
     border: 0;
-    padding: .75rem 0;
+    padding: .75rem 1rem;
     border-radius: 5px;
+    text-indent: 10px;
 }
 
-::placeholder {
-    padding-left: 15px;
-}
+
 
 
 
