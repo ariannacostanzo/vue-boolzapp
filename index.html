@@ -54,7 +54,7 @@
             </div>
             <div id="chats-container">
                 <ul>
-                    <li v-for="contact in contacts" :key="contact.avatar">
+                    <li v-for="contact in contacts" :key="contact.avatar" @click="log(contact.avatar)">
                         <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name" class="user-img chat-img">
                         <p class="user-name">{{contact.name}}</p>
                     </li>
@@ -90,14 +90,24 @@
             </header>
             <!-- current chat -->
             <section id="current-chat-container">
+                <!-- <div class="message sent">
+                    <p class="message-text">Ciao hai portato a spasso il cane</p>
+                    <p class="message-time">10/01/2020 15.30.00</p>
+                </div>
+                <div class="message received">
+                    <p class="message-text">Ciao hai portato a spasso il canaaaaaa</p>
+                    <p class="message-time">10/01/2020 15.30.00</p>
+                </div> -->
                 <div class="message sent">
                     <p class="message-text">Ciao hai portato a spasso il cane</p>
                     <p class="message-time">10/01/2020 15.30.00</p>
                 </div>
                 <div class="message received">
-                    <p class="message-text">Ciao hai portato a spasso il cane</p>
+                    <p class="message-text">Ciao hai portato a spasso il canaaaaaa</p>
                     <p class="message-time">10/01/2020 15.30.00</p>
                 </div>
+
+
             </section>
             <!-- footer -->
             <footer>

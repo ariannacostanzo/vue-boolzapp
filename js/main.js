@@ -16,7 +16,9 @@ const app = createApp ({
             
     },
     methods: {
-
+        log(id) {
+            console.log(id)
+        }
     }
 
 
