@@ -28,9 +28,9 @@
             <header>
                 <!-- info user -->
                 <div class="user-info">
-                    <img src="img/avatar_1.jpg" alt="" class="user-img header-img">
+                    <img :src="`img/avatar${data.user.avatar}.jpg`" :alt="data.user.name" class="user-img header-img">
                     <div class="user-name-time">
-                        <p class="user-name">Nome Utente</p>
+                        <p class="user-name">{{data.user.name}}</p>
                     </div>
                 </div>
                 <!-- icone -->
@@ -54,22 +54,11 @@
             </div>
             <div id="chats-container">
                 <ul>
-                    <li>
-                        <img src="img/avatar_1.jpg" alt="" class="user-img chat-img">
-                        <p class="user-name">Michele</p>
+                    <li v-for="contact in contacts" :key="contact.avatar">
+                        <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name" class="user-img chat-img">
+                        <p class="user-name">{{contact.name}}</p>
                     </li>
-                    <li>
-                        <img src="img/avatar_1.jpg" alt="" class="user-img chat-img">
-                        <p class="user-name">Michele</p>
-                    </li>
-                    <li>
-                        <img src="img/avatar_1.jpg" alt="" class="user-img chat-img">
-                        <p class="user-name">Michele</p>
-                    </li>
-                    <li>
-                        <img src="img/avatar_1.jpg" alt="" class="user-img chat-img">
-                        <p class="user-name">Michele</p>
-                    </li>
+                   
                     
                     
                 </ul>
