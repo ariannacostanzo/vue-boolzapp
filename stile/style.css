@@ -19,11 +19,23 @@ body {
 header {
     height: 65px;
     background-color: #eaeaea;
+    padding: 0 1rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .row {
     --bs-gutter-x: 0;
 }
+
+
+/* common properties */
+
+
+
+
 
 /* left div */
 
