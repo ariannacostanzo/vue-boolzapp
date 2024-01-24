@@ -10,7 +10,7 @@ const app = createApp ({
             userID: 1,
             textSent: '',
             filteredName: '',
-            isShown: false,
+            messageIdShown: 0,
         }
     },
     computed: {
@@ -42,6 +42,7 @@ const app = createApp ({
                 return lowerName.includes(filteredLower)
             })
         },
+        
          
     },
     methods: {
@@ -89,9 +90,14 @@ const app = createApp ({
             const cutMessage = lastMessage.slice(0, 95) + '...'
             return cutMessage
         }, 
-        showDelete() {
-            this.isShown = !this.isShown
-        } 
+        //le ultime cose che stavo implementando su @clickshowDelete e v-show=checkIdmessage
+        showDelete(currentMessage) {
+            this.messageIdShown = currentMessage.id
+        },
+        checkIdMessage(id) {
+            return id === this.messageIdShown
+                
+        }
     }
 
 

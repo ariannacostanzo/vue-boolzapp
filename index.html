@@ -89,10 +89,10 @@
             <!-- current chat -->
             <section id="current-chat-container">
                 
-                <div v-for="message in messages" class="message" :class="isSent(message.status) ? 'sent' : 'received'" :key="message.id" @click="showDelete(true)">
+                <div v-for="message in messages" class="message" :class="isSent(message.status) ? 'sent' : 'received'" :key="message.id" @click="showDelete(message)">
                     <p class="message-text">{{message.text}}</p>
                     <p class="message-time">{{message.date}}</p>
-                    <div v-show="isShown" class="delete-container">
+                    <div v-show="checkIdMessage(message.id)" class="delete-container">
                         <p>Info messaggio</p>
                         <p>Cancella messaggio</p>
                     </div>
@@ -125,3 +125,4 @@
 <!-- fare delle risposte diverse -->
 <!-- nell'ultimo accesso fare che se accede oggi invece della data c'è scritto oggi e l'orario -->
 <!-- se lui scrive dice sta scrivendo -->
+<!-- fare una x per eliminare il filtro -->
