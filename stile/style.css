@@ -266,7 +266,8 @@ input:focus-visible {
     padding: 1rem .7rem .3rem 1rem;
     margin-bottom: .7rem;
     word-break: break-all;
-
+    cursor: pointer;
+    position: relative;
 }
 
 .message.sent {
@@ -286,6 +287,24 @@ input:focus-visible {
     color: rgba(128, 128, 128, 0.733);
 }
 
+.delete-container {
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.534);
+    right: 0;
+    top: 90%;
+    padding: .5rem 0;
+    text-align: center;
+    z-index: 1;
+}
+
+.delete-container p {
+    padding: .5rem 1rem;
+}
+
+.delete-container p:hover {
+    background-color: #e9ebeb;
+}
 
 /* footer */
 

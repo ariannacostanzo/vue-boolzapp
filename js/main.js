@@ -9,7 +9,8 @@ const app = createApp ({
             data,
             userID: 1,
             textSent: '',
-            filteredName: ''
+            filteredName: '',
+            isShown: false,
         }
     },
     computed: {
@@ -69,7 +70,7 @@ const app = createApp ({
             const newMessageReceived = {
                 id: new Date().toISOString(),
                 date: this.currentDate,
-                text: 'Grazie per avermelo ricordato, le scrivo subito! ciao ciao ciao razie per avermelo ricordato, le scrivo subito! ci razie per avermelo ricordato, le scrivo subito! ci razie per avermelo ricordato, le scrivo subito! ci',
+                text: 'ok!',
                 status: 'received'
             }
 
@@ -87,7 +88,10 @@ const app = createApp ({
             const lastMessage = contact.messages[contact.messages.length - 1].text
             const cutMessage = lastMessage.slice(0, 95) + '...'
             return cutMessage
-        }   
+        }, 
+        showDelete() {
+            this.isShown = !this.isShown
+        } 
     }
 
 
