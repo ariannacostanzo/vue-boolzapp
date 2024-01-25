@@ -153,8 +153,7 @@ const app = createApp ({
         },
         printEmoji() {
             const randomEmoji = this.getRandom(this.emojis)
-            console.log(randomEmoji)
-            return textSent = randomEmoji
+            this.textSent += randomEmoji
         }
 
     }
