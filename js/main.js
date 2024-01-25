@@ -100,10 +100,20 @@ const app = createApp ({
             return value.toString().padStart(2, '0')
         },
         cutMessage(contact) {
-            const lastMessage = contact.messages[contact.messages.length - 1].text
-            const cutMessage = lastMessage.slice(0, 95) + '...'
-            return cutMessage
+            if (contact.messages.length) {
+                const lastMessage = contact.messages[contact.messages.length - 1].text
+                const cutMessage = lastMessage.slice(0, 95) + '...'
+                return cutMessage
+            } else {
+                return ''
+            }
+            
         }, 
+        showDate(contact) {
+            if (contact.messages.length) {
+                return contact.messages[contact.messages.length - 1].date
+            } else return ''
+        },
         showDelete(currentMessage) {
             this.messageIdShown = currentMessage.id
             this.isShown = !this.isShown

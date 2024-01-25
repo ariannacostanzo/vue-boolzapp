@@ -63,7 +63,7 @@
                             <p class="last-message" :class="showIsWritingClass(contact.id)">{{ showIsWriting(contact.id, contact)}}</p>
                             <!-- <p class="last-message">{{cutMessage(contact)}}</p> -->
                         </div>
-                        <p class="last-date">{{contact.messages[contact.messages.length - 1].date}}</p>
+                        <p class="last-date">{{showDate(contact)}}</p>
                     </li>
                 </ul>
             </div>
@@ -79,7 +79,7 @@
                     <img :src="`img/avatar${currentContact.avatar}.jpg`" :alt="currentContact.name" class="user-img header-img">
                     <div class="user-name-time">
                         <p class="user-name">{{currentContact.name}}</p>
-                        <p class="user-time">Ultimo accesso <span>{{currentContact.messages[currentContact.messages.length - 1].date}}</span></p>
+                        <p class="user-time">Ultimo accesso: <span>{{showDate(currentContact)}}</span></p>
                     </div>
                 </div>
                 <!-- icone -->
@@ -126,7 +126,5 @@
 <!-- sistemare la scrollbar di sinistra -->
 <!-- fare delle risposte diverse -->
 <!-- nell'ultimo accesso fare che se accede oggi invece della data c'è scritto oggi e l'orario -->
-<!-- se lui scrive dice sta scrivendo -->
-<!-- fare uno svuota chat premendo i 3 puntini -->
 <!-- fare qualcosa per info messaggio -->
 <!-- emoji picker -->
