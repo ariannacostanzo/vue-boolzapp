@@ -28,9 +28,9 @@
             <header>
                 <!-- info user -->
                 <div class="user-info">
-                    <img :src="`img/avatar${data.user.avatar}.jpg`" :alt="data.user.name" class="user-img header-img">
+                    <img :src="`img/avatar${user.avatar}.jpg`" :alt="user.name" class="user-img header-img">
                     <div class="user-name-time">
-                        <p class="user-name">{{data.user.name}}</p>
+                        <p class="user-name">{{user.name}}</p>
                     </div>
                 </div>
                 <!-- icone -->
@@ -89,14 +89,12 @@
             <!-- current chat -->
             <section id="current-chat-container">
                 
-                <!-- da sistemare l'event ok click -->
-                <div v-for="message in messages" class="message" :class="isSent(message.status) ? 'sent' : 'received'" :key="message.id" @click="showDelete(message)">
+                <div v-for="message in filteredMessages" class="message" :class="isSent(message.status) ? 'sent' : 'received'" :key="message.id" @click="showDelete(message)">
                     <p class="message-text">{{message.text}}</p>
                     <p class="message-time">{{message.date}}</p>
-                    <!-- da sistemare il v-show -->
                     <div v-show="checkIdMessage(message.id)" class="delete-container">
                         <p>Info messaggio</p>
-                        <p>Cancella messaggio</p>
+                        <p @click="deleteMessage(message.id)">Cancella messaggio</p>
                     </div>
                 </div>
                 

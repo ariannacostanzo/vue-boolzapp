@@ -4,7 +4,7 @@ html {
     
 }
 body {
-    background: linear-gradient(to top, #dbdbd2 88%, #009688 1%);
+    background-image: linear-gradient(#009688 150px, #dbdbd2 1%);
     height: 100vh;
     
 

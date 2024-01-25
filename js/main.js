@@ -2,21 +2,25 @@
 
 const {createApp} = Vue;
 
+
 const app = createApp ({
     name: 'Boolzapp',
     data() {
         return {
             data,
+            user: data.user,
+            contacts: data.contacts,
             userID: 1,
             textSent: '',
             filteredName: '',
             messageIdShown: 0,
+            isShown: false
         }
     },
     computed: {
-        contacts() {
-            return this.data.contacts
-        },
+        // contacts() {
+        //     return this.data.contacts
+        // },
         currentContact() {
             return this.contacts.find((contact) => {
                 if (this.userID === contact.id) return contact
@@ -42,6 +46,11 @@ const app = createApp ({
                 return lowerName.includes(filteredLower)
             })
         },
+        filteredMessages() {
+            return this.messages.filter((message) => {
+                return message
+            })
+        }
         
          
     },
@@ -53,6 +62,7 @@ const app = createApp ({
                     return
                 } 
             })
+            this.messageIdShown = 0
         },
         isSent(status) {
             return status === 'sent' 
@@ -90,13 +100,26 @@ const app = createApp ({
             const cutMessage = lastMessage.slice(0, 95) + '...'
             return cutMessage
         }, 
-        //le ultime cose che stavo implementando su @clickshowDelete e v-show=checkIdmessage
         showDelete(currentMessage) {
             this.messageIdShown = currentMessage.id
+            this.isShown = !this.isShown
         },
         checkIdMessage(id) {
-            return id === this.messageIdShown
-                
+            if (id === this.messageIdShown) 
+            return this.isShown
+        },
+        deleteMessage(id) {
+            this.filteredMessages.forEach((item, i) => {
+                if (id === item.id) {
+                    console.log(id)
+                    console.log(item)
+                    console.log(i)
+                    this.filteredMessages.splice(i, 1)
+                    console.log(this.filteredMessages)
+                }
+            })
+            
+            
         }
     }
 
