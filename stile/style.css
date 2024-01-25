@@ -267,6 +267,12 @@ input:focus-visible {
     
 }
 
+input[type="file"] {
+    display: none;
+    
+}
+
+
 /* messaggi */
 
 .message {

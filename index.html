@@ -85,7 +85,11 @@
                 <!-- icone -->
                 <div class="header-icons position-relative">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                    <i class="fa-solid fa-paperclip"></i>
+                    <label for='image-upload' >
+                        <input type="file" id="image-upload" accept="image/png, image/jpeg, image/jpg">
+                        <i class="fa-solid fa-paperclip"></i>
+                    </label>
+                    
                     <i class="fa-solid fa-ellipsis-vertical ms-2 " @click="toggleEmpty"></i>
                     <div v-show="showEmpty" class="delete-container">
                         <p @click="emptyChat">Svuota chat</p>
