@@ -16,7 +16,7 @@ const app = createApp ({
             messageIdShown: 0,
             isShown: false,
             isWriting: false,
-            replies: ['Ok', 'Va bene', 'Boh ok', 'Veramente?', 'Non va bene', 'okok', 'ma che dici?', 'non voglio parlare con te adesso', 'sei insopportabile']
+            replies: ['Ok', 'ok...', 'Va bene', 'Boh ok', 'Veramente?', 'Non va bene', 'okok', 'ma che dici?', 'non voglio parlare con te adesso', 'sei insopportabile', 'Mi presti 10 euro?', 'vuoi uscire stasera?' , 'ti va una pizza?', 'ho fame', 'nerdiamo?', 'ci vediamo una serie nuova assieme?']
         }
     },
     computed: {
@@ -83,7 +83,7 @@ const app = createApp ({
             const newMessageReceived = {
                 id: new Date(),
                 date: this.currentDate,
-                text: `${this.getRandomReply()}`,
+                text: `${this.getRandomReply(this.replies)}`,
                 status: 'received'
             }
             
@@ -146,9 +146,9 @@ const app = createApp ({
                 this.messages.splice(0, this.messages.length)
             })
         },
-        getRandomReply() {
-            const randomNumber = Math.floor(Math.random() * (this.replies.length +1 - 0)) + 0
-            return this.replies[randomNumber]
+        getRandomReply(array) {
+            const randomNumber = Math.floor(Math.random() * (array.length))
+            return array[randomNumber]
         }
 
     }
