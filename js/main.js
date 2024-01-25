@@ -88,10 +88,8 @@ const app = createApp ({
             
             //is Writing
             this.isWriting = true;
-            console.log(this.isWriting)
             const receiveText = setInterval(() => {
                 this.isWriting = false;
-                console.log(this.isWriting)
                 this.messages.push(newMessageReceived)
                 clearInterval(receiveText)
             }, 3000)
@@ -131,6 +129,12 @@ const app = createApp ({
             if (this.isWriting && id === this.currentContact.id) {
                 return 'writing'
             } else return ''     
+        },
+        emptyChat() {
+            this.messages.forEach(() => {
+                this.messages.splice(0, this.messages.length - 1)
+            })
+            
         }
     }
 
