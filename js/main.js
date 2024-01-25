@@ -14,7 +14,8 @@ const app = createApp ({
             textSent: '',
             filteredName: '',
             messageIdShown: 0,
-            isShown: false
+            isShown: false,
+            isWriting: false,
         }
     },
     computed: {
@@ -84,12 +85,15 @@ const app = createApp ({
                 text: 'ok!',
                 status: 'received'
             }
-
+            
+            this.isWriting = true;
             const receiveText = setInterval(() => {
+                this.isWriting = false;
                 this.messages.push(newMessageReceived)
                 clearInterval(receiveText)
-            }, 1000)
+            }, 3000)
             
+            this.isWriting = true;
 
         },
         setFullNumbers(value) {
