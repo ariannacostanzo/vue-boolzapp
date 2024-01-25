@@ -16,7 +16,8 @@ const app = createApp ({
             messageIdShown: 0,
             isShown: false,
             isWriting: false,
-            replies: ['Ok', 'ok...', 'Va bene', 'Boh ok', 'Veramente?', 'Non va bene', 'okok', 'ma che dici?', 'non voglio parlare con te adesso', 'sei insopportabile', 'Mi presti 10 euro?', 'vuoi uscire stasera?' , 'ti va una pizza?', 'ho fame', 'nerdiamo?', 'ci vediamo una serie nuova assieme?']
+            replies: ['Ok', 'ok...', 'Va bene', 'Boh ok', 'Veramente?', 'Non va bene', 'okok', 'ma che dici?', 'non voglio parlare con te adesso', 'sei insopportabile', 'Mi presti 10 euro?', 'vuoi uscire stasera?' , 'ti va una pizza?', 'ho fame', 'nerdiamo?', 'ci vediamo una serie nuova assieme?'],
+            emojis: ['💘','💝','💖','💗','💓','💞','💕','💟','❣️','💔','❤️','🧡','💛','💚','💙','💜','🤎','🖤','🤍','❤️‍','🔥','❤️‍','🌜️','☀️','🌝','🌞','🪐','💫','⭐️','😀','😃','😄','😁','😆','😅','🤣','😂','🙂','🙃','😉','😊','😇','🥰','😍','🤩','😘','😗','☺️','😚','😙','😋','😛','😜','🤪','😝','🤑','🤗','🤭','🤫','🤔','🤐','🤨','😐️','😑','😶','😏','😒','🙄','😬','🤥','😌','😔','😪','😮‍','💨','🤤','😴','😷','🤒','🤕','🤢','🤮','🤧','🥵','🥶','😶‍','🌫️','🥴','😵‍','💫','😵','🤯','🤠','🥳','😎','🤓','🧐','😕','😟','🙁','☹️','😮','😯','😲','😳','🥺','😦','😧','😨','😰','😥','😢','😭','😱','😖','😣','😞','😓','😩','😫','🥱','😤']
         }
     },
     computed: {
@@ -83,7 +84,7 @@ const app = createApp ({
             const newMessageReceived = {
                 id: new Date(),
                 date: this.currentDate,
-                text: `${this.getRandomReply(this.replies)}`,
+                text: `${this.getRandom(this.replies)}`,
                 status: 'received'
             }
             
@@ -146,9 +147,14 @@ const app = createApp ({
                 this.messages.splice(0, this.messages.length)
             })
         },
-        getRandomReply(array) {
+        getRandom(array) {
             const randomNumber = Math.floor(Math.random() * (array.length))
             return array[randomNumber]
+        },
+        printEmoji() {
+            const randomEmoji = this.getRandom(this.emojis)
+            console.log(randomEmoji)
+            return textSent = randomEmoji
         }
 
     }
