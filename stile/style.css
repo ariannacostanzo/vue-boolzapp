@@ -306,6 +306,9 @@ input:focus-visible {
     padding: .5rem 0;
     text-align: center;
     z-index: 1;
+    color: black;
+    font-size: 1rem;
+    cursor: pointer;
 }
 
 .delete-container p {

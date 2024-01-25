@@ -83,10 +83,13 @@
                     </div>
                 </div>
                 <!-- icone -->
-                <div class="header-icons">
+                <div class="header-icons position-relative">
                     <i class="fa-solid fa-magnifying-glass"></i>
                     <i class="fa-solid fa-paperclip"></i>
-                    <i class="fa-solid fa-ellipsis-vertical ms-2" @click="emptyChat"></i>
+                    <i class="fa-solid fa-ellipsis-vertical ms-2 " @click="toggleEmpty"></i>
+                    <div v-show="showEmpty" class="delete-container">
+                        <p @click="emptyChat">Svuota chat</p>
+                    </div>
                 </div>
             </header>
             <!-- current chat -->
@@ -124,9 +127,6 @@
 
 
 <!-- sistemare la scrollbar di sinistra -->
-<!-- fare delle risposte diverse -->
-<!-- nell'ultimo accesso fare che se accede oggi invece della data c'è scritto oggi e l'orario -->
 <!-- fare qualcosa per info messaggio -->
-<!-- emoji picker -->
 <!-- fare in modo che se premo il tasto allega invio un immagine random da un mio array -->
 <!-- al click della lente di ingrandimento fare apparire un input cojn cui filtrare i messaggi -->
