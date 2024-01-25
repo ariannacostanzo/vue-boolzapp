@@ -142,7 +142,7 @@ const app = createApp ({
         },
         emptyChat() {
             this.messages.forEach(() => {
-                this.messages.splice(0, this.messages.length - 1)
+                this.messages.splice(0, this.messages.length)
             })
             
         }
