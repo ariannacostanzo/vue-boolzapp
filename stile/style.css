@@ -265,7 +265,7 @@ input:focus-visible {
     width: 300px;
     padding: 1rem .7rem .3rem 1rem;
     margin-bottom: .7rem;
-    word-break: break-all;
+    word-break: break-word;
     cursor: pointer;
     position: relative;
 }

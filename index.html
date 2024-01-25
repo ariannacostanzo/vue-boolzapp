@@ -51,6 +51,7 @@
             <div id="searchbar-container">
                 <div class="searchbar-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
                 <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="filteredName">
+                <button v-show="filteredName" type="button" class="btn-close" aria-label="Close" @click="clearFilter"></button>
             </div>
             <div id="chats-container">
                 <ul>
@@ -126,5 +127,3 @@
 <!-- nell'ultimo accesso fare che se accede oggi invece della data c'è scritto oggi e l'orario -->
 <!-- se lui scrive dice sta scrivendo -->
 <!-- fare una x per eliminare il filtro -->
-<!-- fare che cliccando di nuovo il message il menu di eliminare si nasconde -->
-<!-- sistemare meglio il div che si apre solo al messaggio di quel contatto -->

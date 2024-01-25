@@ -112,6 +112,9 @@ const app = createApp ({
             this.messages.forEach((item, i) => {
                 if (id === item.id) this.messages.splice(i, 1)
             })
+        },
+        clearFilter() {
+            this.filteredName = ''
         }
     }
 
