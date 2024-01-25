@@ -43,6 +43,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-shrink: 0;
 }
 
 .row {
@@ -60,6 +61,8 @@ i {
 input:focus-visible {
     outline: 0;
 }
+
+
 
 /* common properties */
 
@@ -222,6 +225,8 @@ input:focus-visible {
     font-size: .9rem;
 }
 
+
+
 .last-date {
     align-self: flex-start;
     color: grey;
@@ -229,6 +234,11 @@ input:focus-visible {
 
     position: absolute;
     right: 16px;
+}
+
+.writing {
+    color: #20b858;
+    font-weight: bold;
 }
 
 
@@ -315,6 +325,7 @@ footer {
 
     display: flex;
     align-items: center;
+    flex-shrink: 0;
     
 }
 

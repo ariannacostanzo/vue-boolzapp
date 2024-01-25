@@ -86,14 +86,16 @@ const app = createApp ({
                 status: 'received'
             }
             
+            //is Writing
             this.isWriting = true;
+            console.log(this.isWriting)
             const receiveText = setInterval(() => {
                 this.isWriting = false;
+                console.log(this.isWriting)
                 this.messages.push(newMessageReceived)
                 clearInterval(receiveText)
             }, 3000)
             
-            this.isWriting = true;
 
         },
         setFullNumbers(value) {
