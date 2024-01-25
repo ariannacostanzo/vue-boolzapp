@@ -125,8 +125,12 @@ const app = createApp ({
         showIsWriting(id, cont) {
             if (this.isWriting && id === this.currentContact.id) {
                 return 'Sta scrivendo...'
-            } else return this.cutMessage(cont)
-                  
+            } else return this.cutMessage(cont)      
+        },
+        showIsWritingClass(id) {
+            if (this.isWriting && id === this.currentContact.id) {
+                return 'writing'
+            } else return ''     
         }
     }
 
