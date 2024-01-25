@@ -16,6 +16,7 @@ const app = createApp ({
             messageIdShown: 0,
             isShown: false,
             isWriting: false,
+            replies: ['Ok', 'Va bene', 'Boh ok', 'Veramente?', 'Non va bene', 'okok', 'ma che dici?', 'non voglio parlare con te adesso', 'sei insopportabile']
         }
     },
     computed: {
@@ -82,7 +83,7 @@ const app = createApp ({
             const newMessageReceived = {
                 id: new Date(),
                 date: this.currentDate,
-                text: 'ok!',
+                text: `${this.getRandomReply()}`,
                 status: 'received'
             }
             
@@ -112,7 +113,7 @@ const app = createApp ({
         showDate(contact) {
             if (contact.messages.length) {
                 return contact.messages[contact.messages.length - 1].date
-            } else return ''
+            } else return 'oggi'
         },
         showDelete(currentMessage) {
             this.messageIdShown = currentMessage.id
@@ -144,8 +145,12 @@ const app = createApp ({
             this.messages.forEach(() => {
                 this.messages.splice(0, this.messages.length)
             })
-            
+        },
+        getRandomReply() {
+            const randomNumber = Math.floor(Math.random() * (this.replies.length +1 - 0)) + 0
+            return this.replies[randomNumber]
         }
+
     }
 
 
