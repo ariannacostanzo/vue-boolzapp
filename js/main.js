@@ -79,7 +79,7 @@ const app = createApp ({
             this.textSent =''
 
             const newMessageReceived = {
-                id: new Date().toISOString(),
+                id: new Date(),
                 date: this.currentDate,
                 text: 'ok!',
                 status: 'received'
@@ -109,17 +109,9 @@ const app = createApp ({
             return this.isShown
         },
         deleteMessage(id) {
-            this.filteredMessages.forEach((item, i) => {
-                if (id === item.id) {
-                    console.log(id)
-                    console.log(item)
-                    console.log(i)
-                    this.filteredMessages.splice(i, 1)
-                    console.log(this.filteredMessages)
-                }
+            this.messages.forEach((item, i) => {
+                if (id === item.id) this.messages.splice(i, 1)
             })
-            
-            
         }
     }
 
