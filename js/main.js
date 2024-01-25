@@ -121,6 +121,12 @@ const app = createApp ({
         },
         clearFilter() {
             this.filteredName = ''
+        },
+        showIsWriting(id, cont) {
+            if (this.isWriting && id === this.currentContact.id) {
+                return 'Sta scrivendo...'
+            } else return this.cutMessage(cont)
+                  
         }
     }
 

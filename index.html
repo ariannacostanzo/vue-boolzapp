@@ -59,7 +59,8 @@
                         <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name" class="user-img chat-img">
                         <div class="contact-info">
                             <p class="user-name">{{contact.name}}</p>
-                            <p class="last-message" :class="isWriting ? 'writing' : ''">{{ isWriting ? 'Sta scrivendo...' : cutMessage(contact) }}</p>
+                            <!-- <p class="last-message" :class="isWriting ? 'writing' : ''">{{ isWriting ? 'Sta scrivendo...' : cutMessage(contact) }}</p> -->
+                            <p class="last-message" :class="isWriting ? 'writing' : ''">{{ showIsWriting(contact.id, contact)}}</p>
                             <!-- <p class="last-message">{{cutMessage(contact)}}</p> -->
                         </div>
                         <p class="last-date">{{contact.messages[contact.messages.length - 1].date}}</p>
@@ -126,3 +127,5 @@
 <!-- fare delle risposte diverse -->
 <!-- nell'ultimo accesso fare che se accede oggi invece della data c'è scritto oggi e l'orario -->
 <!-- se lui scrive dice sta scrivendo -->
+<!-- fare uno svuota chat premendo i 3 puntini -->
+<!-- fare qualcosa per info messaggio -->
