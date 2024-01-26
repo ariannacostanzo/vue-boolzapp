@@ -5,6 +5,7 @@ const {createApp} = Vue;
 
 const app = createApp ({
     name: 'Boolzapp',
+    // Variabili iniziali
     data() {
         return {
             data,
@@ -34,15 +35,17 @@ const app = createApp ({
             const currentContact = this.currentContact;
             return currentContact.messages
         },
-        currentDate() {
-            let currentFullDate = ''
-            const now = new Date;
-            const currentDate = `${this.setFullNumbers(now.getDate())}/${this.setFullNumbers(now.getMonth() + 1)}/${now.getFullYear()}`;
-            const currentTime = `${this.setFullNumbers(now.getHours())}:${this.setFullNumbers(now.getMinutes())}:${this.setFullNumbers(now.getSeconds())}`;
-            currentFullDate = `${currentDate} ${currentTime}`
-            return currentFullDate
+        //ritorna una data di ora in formato 01/01/2024 01:01:01
+        // currentDate() {
+        //     let currentFullDate = ''
+        //     const now = new Date;
+        //     const currentDate = `${this.setFullNumbers(now.getDate())}/${this.setFullNumbers(now.getMonth() + 1)}/${now.getFullYear()}`;
+        //     const currentTime = `${this.setFullNumbers(now.getHours())}:${this.setFullNumbers(now.getMinutes())}:${this.setFullNumbers(now.getSeconds())}`;
+        //     currentFullDate = `${currentDate} ${currentTime}`
+        //     return currentFullDate
 
-        },
+        // },
+        //array che mostro per filtrare i contatti
         filteredContacts() {
             return this.contacts.filter((contact) => {
                 const lowerName = contact.name.toLowerCase();
@@ -50,6 +53,7 @@ const app = createApp ({
                 return lowerName.includes(filteredLower)
             })
         },
+        //array di messaggio che mostro per filtrarli
         filteredMessages() {
             return this.messages.filter((message) => {
                 return message
@@ -59,6 +63,16 @@ const app = createApp ({
          
     },
     methods: {
+        currentDate() {
+            let currentFullDate = ''
+            const now = new Date;
+            const currentDate = `${this.setFullNumbers(now.getDate())}/${this.setFullNumbers(now.getMonth() + 1)}/${now.getFullYear()}`;
+            const currentTime = `${this.setFullNumbers(now.getHours())}:${this.setFullNumbers(now.getMinutes())}:${this.setFullNumbers(now.getSeconds())}`;
+            currentFullDate = `${currentDate} ${currentTime}`
+            return currentFullDate
+
+        },
+        //ottengo l'id dell'utente mostrato
         getCurrentContact(id) {
              this.contacts.forEach((contact) => {
                 if (id === contact.id) {
@@ -68,40 +82,42 @@ const app = createApp ({
             })
             this.messageIdShown = 0
         },
+        //funzione che serve ad impostare la classe sent o received
         isSent(status) {
             return status === 'sent' 
         },
-        sendMessage() {
+        addMessage(text, status) {
             const newMessageSent = {
-                id: new Date().toISOString(),
-                date: this.currentDate,
-                text: this.textSent,
-                status: 'sent'
+                id: new Date().getTime(),
+                date: this.currentDate(),
+                text,
+                status
             }
 
             this.messages.push(newMessageSent)
+        },
+        //funzione per inviare un nuovo messaggio, dopo 3 secondi mi arriva un messaggio
+        sendMessage() {
+            
+            this.addMessage(this.textSent, 'sent')
+            //svuoto il campo
             this.textSent =''
-
-            const newMessageReceived = {
-                id: new Date(),
-                date: this.currentDate,
-                text: `${this.getRandom(this.replies)}`,
-                status: 'received'
-            }
             
             //is Writing
             this.isWriting = true;
-            const receiveText = setInterval(() => {
+
+            setTimeout(() => {
+                this.addMessage(`${this.getRandom(this.replies)}`, 'received')
                 this.isWriting = false;
-                this.messages.push(newMessageReceived)
-                clearInterval(receiveText)
             }, 3000)
-            
 
         },
+        //funzione che uso per mettere uno 0 davanti al numero se non è decimale
         setFullNumbers(value) {
             return value.toString().padStart(2, '0')
         },
+        //funzione che uso per mostrare l'ultimo messaggio che non supera i 95 caratteri(perchè poi aumentano
+        //la dimensione della casella contatti) oppure se non ho messaggi mi ritorna niente
         cutMessage(contact) {
             if (contact.messages.length) {
                 const lastMessage = contact.messages[contact.messages.length - 1].text
@@ -112,56 +128,66 @@ const app = createApp ({
             }
             
         }, 
+        //mostro la data dell'ultimo messaggio oppure se non ho messaggi mostro oggi
         showDate(contact) {
             if (contact.messages.length) {
                 return contact.messages[contact.messages.length - 1].date
             } else return 'oggi'
         },
+        //toggla isShown
         showDelete(currentMessage) {
             this.messageIdShown = currentMessage.id
             this.isShown = !this.isShown
         },
+        //toggla il div di cancella messaggio in base a isShown e l'id del messaggio
         checkIdMessage(id) {
             if (id === this.messageIdShown) 
             return this.isShown
         },
+        //cliccando 'cancella messaggio' il messaggio relativo viene rimosso da messages
         deleteMessage(id) {
             this.messages.forEach((item, i) => {
                 if (id === item.id) this.messages.splice(i, 1)
             })
+            
         },
+        //premendo la x pulisco il filtro contatti
         clearFilter() {
             this.filteredName = ''
         },
+        //Se l'utente è quello della chat mostrata e is writing è vero spunta sennò spunta l'ultimo messaggio(o niente se non ci sono messaggi)
         showIsWriting(id, cont) {
             if (this.isWriting && id === this.currentContact.id) {
                 return 'Sta scrivendo...'
             } else return this.cutMessage(cont)      
         },
+        //attiva la class is writing se l'utente è quello della chat mostrata e is writing è vero
         showIsWritingClass(id) {
             if (this.isWriting && id === this.currentContact.id) {
                 return 'writing'
             } else return ''     
         },
+        //svuoto i messaggi dell'utente relativo e nascondo empty chat
         emptyChat() {
             this.messages.forEach(() => {
                 this.messages.splice(0, this.messages.length)
             })
             this.showEmpty = false;
         },
+        //ottengo un item random da un array
         getRandom(array) {
             const randomNumber = Math.floor(Math.random() * (array.length))
             return array[randomNumber]
         },
+        //al click prendo un emoji random e l'aggiungo al box per scrivere un messaggio
         printEmoji() {
             const randomEmoji = this.getRandom(this.emojis)
             this.textSent += randomEmoji
         },
+        //toggla svuota la chat
         toggleEmpty() {
             this.showEmpty = !this.showEmpty
         }
-        
-
     }
 
 
