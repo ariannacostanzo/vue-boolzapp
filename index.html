@@ -112,7 +112,7 @@
                     </p>
                     <div v-show="checkIdMessage(message.id)" class="delete-container">
                         <p @click="showInfo = true" v-show="message.status === 'sent'">Info messaggio</p>
-                        <p @click="deleteMessage(message.id)">Cancella messaggio</p>
+                        <p v-show="!showInfo" @click="deleteMessage(message.id)">Cancella messaggio</p>
                     </div>
                 </div>
                 
@@ -165,8 +165,10 @@
 
 
 <!-- sistemare la scrollbar di sinistra -->
-<!-- fare qualcosa per info messaggio -->
-<!-- info messaggio apre un nuovo div a destra, restringendo la chat dove c'è riprodotto visto e consegnato -->
 <!-- al click del microfono spunta un div che sovrasta tutto il footer con cestino, secondi che aumentano, onde che aumentano, stop e invio -->
 <!-- cambiare foto con i miei amici -->
+<!-- bugs: -->
 <!-- info messaggio si sballa se c'è la scrollbar -->
+<!-- se ho info aperto e premo un messaggio inviato mi cambia il messaggio mostrato in quello lì -->
+<!-- se cambio user mentre sta scrivendo scriverà l'altro -->
+<!-- se ho info messaggio aperto e cambio user mi mostra il primo messaggio di quell'user -->

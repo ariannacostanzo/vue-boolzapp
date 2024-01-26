@@ -162,6 +162,7 @@ const app = createApp ({
         },
         //toggla isShown
         showDelete(currentMessage) {
+            
             this.messageIdShown = currentMessage.id
             this.isShown = !this.isShown
             
@@ -192,10 +193,14 @@ const app = createApp ({
         },
         //svuoto i messaggi dell'utente relativo e nascondo empty chat
         emptyChat() {
-            this.messages.forEach(() => {
-                this.messages.splice(0, this.messages.length)
-            })
-            this.showEmpty = false;
+            if (!this.showInfo) {
+                this.messages.forEach(() => {
+                    this.messages.splice(0, this.messages.length)
+                })
+                this.showEmpty = false;
+            }   else this.showEmpty = false;
+
+            
         },
         //ottengo un item random da un array
         getRandom(array) {
@@ -209,7 +214,11 @@ const app = createApp ({
         },
         //toggla svuota la chat
         toggleEmpty() {
-            this.showEmpty = !this.showEmpty
+            if (!this.showInfo) {
+                this.showEmpty = !this.showEmpty
+            }
+            else return
+            
         },
         //ottengo il nome del file scelto e lo invio come immagine
         //funziona solo se le immagini sono prese dalla cartella img di questa cartella
