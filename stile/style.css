@@ -267,7 +267,6 @@ input:focus-visible {
 
 #current-chat-container {
     flex-grow: 1;
-    overflow-y: scroll;
     padding: 2rem 4rem;
 
     display: flex;
@@ -275,6 +274,15 @@ input:focus-visible {
 
     position: relative;
     
+}
+
+.scrollbar {
+    overflow-y: scroll;
+
+}
+
+.block-overflow {
+    overflow-y: hidden;
 }
 
 

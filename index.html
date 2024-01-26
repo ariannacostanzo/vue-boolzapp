@@ -102,7 +102,7 @@
                 </div>
             </header>
             <!-- current chat -->
-            <section id="current-chat-container">
+            <section id="current-chat-container" :class="showInfo ?  'block-overflow' : 'scrollbar' ">
                 
                 <div v-for="message in filteredMessages" class="message" :class="isSent(message.status) ? 'sent' : 'received'" :key="message.id" @click="showDelete(message)">
                     <i class="fa-solid fa-angle-down arrow-menu"></i>
