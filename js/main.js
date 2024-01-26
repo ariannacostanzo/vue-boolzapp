@@ -231,7 +231,7 @@ const app = createApp ({
             this.textSent = ''
         },
         //funzione che aumenta i secondi durante la registrazione
-        timeRunning() {
+        recording() {
             const timeRunning = setInterval(() =>{
                 this.seconds++
                 seconds = this.setFullNumbers(this.seconds)
@@ -252,5 +252,27 @@ app.mount('#root');
 
 
 
+const setFullNumbers = (value) => {
+    return value.toString().padStart(2, '0');
+}
 
+const div = document.getElementById('prova')
 
+let minutes = 0;
+let seconds = 0;
+
+setInterval(() => {
+    seconds++;
+
+    // se secondi arriva a 60 aumentano i minuti
+    if (seconds === 60) {
+        seconds = 0;
+        minutes++;
+    }
+
+    const formattedSeconds = setFullNumbers(seconds);
+    const formattedMinutes = setFullNumbers(minutes);
+
+    div.innerText = formattedMinutes + ':' + formattedSeconds;
+
+}, 1000);
