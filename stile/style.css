@@ -461,7 +461,9 @@ footer {
     display: flex;
     align-items: center;
     flex-shrink: 0;
-    
+
+    /* da cambiare */
+    position: relative;
 }
 
 
@@ -477,7 +479,6 @@ footer {
 
 .footer-new-text {
     flex-grow: 1;
-    background-color: white;
     border-radius: 5px;
 }
 
@@ -487,13 +488,32 @@ footer {
     padding: .75rem 1rem;
     border-radius: 5px;
     text-indent: 10px;
+
+    /* per ora */
+    /* display: none; */
 }
 
+#recording-div {
+    /* da cambiare */
+    position: absolute;
+    left: 0;
+    /* background-color: red; */
+    bottom: 50%;
+    margin-left: 20%;
 
+}
 
+#recording-div i {
+    font-size: 2rem;
+}
 
+#recording-div .fa-circle-pause {
+    color: red;
+}
 
-
+#recording-div .fa-paper-plane {
+    color: #20b858;
+}
 
 
 /* media query */
