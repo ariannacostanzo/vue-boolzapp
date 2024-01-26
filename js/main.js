@@ -91,7 +91,7 @@ const app = createApp ({
                     return
                 } 
             })
-            this.messageIdShown = 0
+            this.messageIdShown = 1
         },
         //funzione che serve ad impostare la classe sent o received
         isSent(status) {
@@ -173,9 +173,9 @@ const app = createApp ({
         },
         //cliccando 'cancella messaggio' il messaggio relativo viene rimosso da messages
         deleteMessage(id) {
-            this.messages.forEach((item, i) => {
-                if (id === item.id) this.messages.splice(i, 1)
-            })
+            const index = this.messages.findIndex((item) => item.id === id);
+            this.messages.splice(index, 1)
+
         },
         
         //Se l'utente è quello della chat mostrata e is writing è vero spunta sennò spunta l'ultimo messaggio(o niente se non ci sono messaggi)
@@ -220,6 +220,7 @@ const app = createApp ({
             this.sendMessage()
             this.textSent = ''
         },
+        
         
     }
 
