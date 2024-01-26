@@ -22,6 +22,7 @@ const app = createApp ({
             showEmpty: false,
             showFilter: false,
             filterMessage: '',
+            showInfo: false,
         }
     },
     computed: {

@@ -273,25 +273,7 @@ input:focus-visible {
     
 }
 
-/* div info messaggio */
 
-#info-messaggio {
-    position: absolute;
-    background-color: #eaeaea;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    width: 50%;
-    border: 1px solid white;
-}
-
-#info-message-background {
-    background-image: url(/img/mine.jpg);
-}
-
-#info-message-checked {
-    padding: 1rem;
-}
 
 /* header  */
 
@@ -430,6 +412,31 @@ input[type="file"] {
     max-width: 100%;
     margin-bottom: .2rem;
 }
+
+/* div info messaggio */
+
+#info-messaggio {
+    position: absolute;
+    background-color: #eaeaea;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 50%;
+    border: 1px solid white;
+}
+
+#info-message-background {
+    background-image: url(/img/mine.jpg);
+}
+
+#info-message-checked {
+    padding: 1rem;
+}
+
+#info-messaggio .double-check:not(.message-checked) {
+    color: #8b8b8b;
+}
+
 
 /* footer */
 

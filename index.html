@@ -111,15 +111,15 @@
                         <span v-show="message.status === 'sent'" class="double-check message-checked"><i class="fa-solid fa-check"></i><i class="fa-solid fa-check"></i></span>
                     </p>
                     <div v-show="checkIdMessage(message.id)" class="delete-container">
-                        <p>Info messaggio</p>
+                        <p @click="showInfo = true">Info messaggio</p>
                         <p @click="deleteMessage(message.id)">Cancella messaggio</p>
                     </div>
                 </div>
                 
-                <div id="info-messaggio"> 
+                <div id="info-messaggio" v-show="showInfo"> 
                     <header>
                         <div>
-                            <button type="button" class="btn-close me-2" ></button>
+                            <button type="button" class="btn-close me-2" @click="showInfo = false"></button>
                             Info messaggio
                         </div>
                     </header>
@@ -127,12 +127,12 @@
                     <div id="info-message-checked">
                         <span class="double-check message-checked"><i class="fa-solid fa-check"></i><i class="fa-solid fa-check"></i></span>
                         <span class="ms-3">Letto</span>
-                        <p>Oggi alle 15:05</p>
+                        <p class="user-time">Oggi alle 15:05</p>
                         <hr>
                         <span class="double-check"><i class="fa-solid fa-check"></i><i class="fa-solid fa-check"></i></span>
                         <span class="ms-3">Consegnato</span>
-                        <p>Oggi alle 15:05</p>
-                        
+                        <p class="user-time">Oggi alle 15:05</p>
+
                     </div>
                     
                     
