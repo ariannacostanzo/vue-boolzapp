@@ -119,11 +119,13 @@
                 <div id="info-messaggio" v-show="showInfo"> 
                     <header>
                         <div>
-                            <button type="button" class="btn-close me-2" @click="showInfo = false"></button>
+                            <button type="button" class="btn-close me-2" @click="this.showInfo = false"></button>
                             Info messaggio
                         </div>
                     </header>
-                    <div id="info-message-background">il messaggio</div>
+                    <div id="info-message-background">
+                        <div class="message" :class="isSent(message.status) ? 'sent' : 'received'"></div>
+                    </div>
                     <div id="info-message-checked">
                         <span class="double-check message-checked"><i class="fa-solid fa-check"></i><i class="fa-solid fa-check"></i></span>
                         <span class="ms-3">Letto</span>

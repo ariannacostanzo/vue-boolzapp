@@ -52,7 +52,14 @@ const app = createApp ({
             return this.messages.filter((message) => {
                 if (message.text.includes(this.filterMessage)) return message
             })
-        }
+        },
+        currentMessageInfo () {
+            return this.messages.find((message) => {
+                if(message.id === this.messageIdShown) {
+                    return message
+                }
+            })
+        },
         
          
     },
@@ -128,7 +135,7 @@ const app = createApp ({
                 
                 //se il messaggio è più lungo di un tot aggiungo ... per fare vedere che lo sto tagliando
                 if (lastMessage.length > 35) {
-                    lastMessage = lastMessage.slice(0, 36);
+                    lastMessage = lastMessage.slice(0, 35);
                     lastMessage += '...'
                 } 
 
@@ -136,7 +143,8 @@ const app = createApp ({
                 if (lastMessage.includes('<img src=')) lastMessage = '<i class="fa-solid fa-image"></i> Foto'
 
                 //se l'ultimo messaggio è uno inviato spunta tu: messaggio
-                if (lastMessageStatus === 'sent') return `Tu: ${lastMessage}`
+                if (lastMessageStatus === 'sent') 
+                {return `<span class="double-check message-checked me-2"><i class="fa-solid fa-check"></i><i class="fa-solid fa-check"></i></span> Tu: ${lastMessage}`}
                 
                 return lastMessage
             } else {
@@ -156,6 +164,7 @@ const app = createApp ({
         showDelete(currentMessage) {
             this.messageIdShown = currentMessage.id
             this.isShown = !this.isShown
+            
         },
         //toggla il div di cancella messaggio in base a isShown e l'id del messaggio
         checkIdMessage(id) {
@@ -167,8 +176,8 @@ const app = createApp ({
             this.messages.forEach((item, i) => {
                 if (id === item.id) this.messages.splice(i, 1)
             })
-            
         },
+        
         //Se l'utente è quello della chat mostrata e is writing è vero spunta sennò spunta l'ultimo messaggio(o niente se non ci sono messaggi)
         showIsWriting(id, cont) {
             if (this.isWriting && id === this.currentContact.id) {
