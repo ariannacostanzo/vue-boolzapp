@@ -202,6 +202,7 @@ const app = createApp ({
             this.showEmpty = !this.showEmpty
         },
         //ottengo il nome del file scelto e lo invio come immagine
+        //funziona solo se le immagini sono prese dalla cartella img di questa cartella
         previewFiles(event) {
             const fileName = (event.target.files[0]).name
             const img = `<img src="img/${fileName}" class='sent-image'>`

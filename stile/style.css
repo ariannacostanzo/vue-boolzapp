@@ -268,7 +268,21 @@ input:focus-visible {
 
     display: flex;
     flex-direction: column;
+
+    position: relative;
     
+}
+
+/* div info messaggio */
+
+#info-messaggio {
+    position: absolute;
+    background-color: white;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 50%;
+    border: 1px solid white;
 }
 
 /* header  */
@@ -301,7 +315,7 @@ input[type="file"] {
 
     border-radius: 10px;
     width: 300px;
-    padding: 1rem .7rem .3rem 1rem;
+    padding: .7rem .7rem .3rem 1rem;
     margin-bottom: .7rem;
     word-break: break-word;
     cursor: pointer;
@@ -361,6 +375,10 @@ input[type="file"] {
     right: 95.3%;
     width: 0px;
     transform: scaleX(-1);
+}
+
+.message-text {
+    font-size: .93rem;
 }
 
 .message-time {
