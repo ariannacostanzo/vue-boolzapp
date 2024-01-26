@@ -321,6 +321,7 @@ input[type="file"] {
     display: block;
 }
 
+
 .message.sent {
     background-color: #d5f9ba;
     align-self: flex-end;
@@ -367,6 +368,15 @@ input[type="file"] {
     text-align: right;
     color: rgba(128, 128, 128, 0.733);
 }
+
+.double-check i{
+    width: 4px;
+}
+
+.message-checked {
+    color: #49b1d7;
+}
+
 
 .delete-container {
     position: absolute;
