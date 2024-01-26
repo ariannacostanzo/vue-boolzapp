@@ -123,6 +123,7 @@ const app = createApp ({
         //mostro la data dell'ultimo messaggio oppure se non ho messaggi mostro oggi
         showDate(contact) {
             if (contact.messages.length) {
+            
                 return contact.messages[contact.messages.length - 1].date
             } else return 'oggi'
         },

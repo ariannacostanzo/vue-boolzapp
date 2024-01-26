@@ -289,12 +289,28 @@ input[type="file"] {
 .message.sent {
     background-color: #d5f9ba;
     align-self: flex-end;
+    position: relative;
     
 }
 
 .message.received {
     background-color: white;
     align-self: flex-start;
+    position: relative;
+}
+
+.message.sent::after {
+    content: '';
+    height: 10px;
+    border-width: 10px 13px 3px 1px;
+    border-style: solid;
+    border-color: transparent #d5f9ba transparent transparent;
+    border-radius: 3px;
+    position: absolute;
+    bottom: 89%;
+    left: 95.5%;
+    width: 0px;
+    
 }
 
 .message-time {
