@@ -84,8 +84,9 @@
                 </div>
                 <!-- icone -->
                 <div class="header-icons position-relative">
-                    <div>
+                    <div class="position-relative">
                         <input type="text" v-show="showFilter" id="message-filter" placeholder="Filtra messaggi" v-model="filterMessage">
+                        <button id='filter-close-btn' v-show="filterMessage" type="button" class="btn-close" aria-label="Close" @click="filterMessage = '' "></button>
                         <i class="fa-solid fa-magnifying-glass" @click="showFilter = !showFilter"></i>
                     </div>
                     <label for='image-upload' >
