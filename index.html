@@ -63,7 +63,7 @@
                             <p class="last-message" :class="showIsWritingClass(contact.id)">{{ showIsWriting(contact.id, contact)}}</p>
                             <!-- <p class="last-message">{{cutMessage(contact)}}</p> -->
                         </div>
-                        <p class="last-date">{{showDate(contact)}}</p>
+                        <p class="last-date">{{showDate(contact, '')}}</p>
                     </li>
                 </ul>
             </div>
@@ -79,7 +79,7 @@
                     <img :src="`img/avatar${currentContact.avatar}.jpg`" :alt="currentContact.name" class="user-img header-img">
                     <div class="user-name-time">
                         <p class="user-name">{{currentContact.name}}</p>
-                        <p class="user-time">Ultimo accesso: <span>{{showDate(currentContact)}}</span></p>
+                        <p class="user-time">Ultimo accesso: <span>{{showDate(currentContact, 'oggi')}}</span></p>
                     </div>
                 </div>
                 <!-- icone -->
@@ -135,4 +135,3 @@
 <!-- al click della lente di ingrandimento fare apparire un input cojn cui filtrare i messaggi -->
 <!-- mettere solo l'orario se il messaggio è di oggi -->
 <!-- info messaggio apre un nuovo div a destra, restringendo la chat dove c'è riprodotto visto e consegnato -->
-<!-- fare la limguetta -->

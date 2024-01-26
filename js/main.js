@@ -54,12 +54,22 @@ const app = createApp ({
          
     },
     methods: {
+        //questa era il vecchio modo di formattare la data
+        // currentDate() {
+        //     let currentFullDate = ''
+        //     const now = new Date;
+        //     const currentDate = `${this.setFullNumbers(now.getDate())}/${this.setFullNumbers(now.getMonth() + 1)}/${now.getFullYear()}`;
+        //     const currentTime = `${this.setFullNumbers(now.getHours())}:${this.setFullNumbers(now.getMinutes())}:${this.setFullNumbers(now.getSeconds())}`;
+        //     currentFullDate = `${currentDate} ${currentTime}`
+        //     return currentFullDate
+
+        // },
+        //nuovo modo più simile a wh web, mostro solo l'ora e i minuti dei nuovi messaggi
         currentDate() {
             let currentFullDate = ''
             const now = new Date;
-            const currentDate = `${this.setFullNumbers(now.getDate())}/${this.setFullNumbers(now.getMonth() + 1)}/${now.getFullYear()}`;
-            const currentTime = `${this.setFullNumbers(now.getHours())}:${this.setFullNumbers(now.getMinutes())}:${this.setFullNumbers(now.getSeconds())}`;
-            currentFullDate = `${currentDate} ${currentTime}`
+            const currentTime = `${this.setFullNumbers(now.getHours())}:${this.setFullNumbers(now.getMinutes())}`;
+            currentFullDate = `${currentTime}`
             return currentFullDate
 
         },
@@ -121,11 +131,11 @@ const app = createApp ({
             
         }, 
         //mostro la data dell'ultimo messaggio oppure se non ho messaggi mostro oggi
-        showDate(contact) {
+        showDate(contact, testo) {
             if (contact.messages.length) {
-            
+                
                 return contact.messages[contact.messages.length - 1].date
-            } else return 'oggi'
+            } else return testo
         },
         //toggla isShown
         showDelete(currentMessage) {
@@ -181,6 +191,7 @@ const app = createApp ({
         toggleEmpty() {
             this.showEmpty = !this.showEmpty
         },
+        //ottengo il nome del file scelto e lo invio come immagine
         previewFiles(event) {
             const fileName = (event.target.files[0]).name
             console.log(fileName);
@@ -188,7 +199,8 @@ const app = createApp ({
             this.textSent = img
             this.sendMessage()
             this.textSent = ''
-        }
+        },
+        
     }
 
 
@@ -196,6 +208,8 @@ const app = createApp ({
 
 
 app.mount('#root');
+
+
 
 
 

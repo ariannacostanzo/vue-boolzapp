@@ -305,12 +305,26 @@ input[type="file"] {
     border-width: 10px 13px 3px 1px;
     border-style: solid;
     border-color: transparent #d5f9ba transparent transparent;
-    border-radius: 3px;
+    border-radius: 0px 4px 0px 0px;
     position: absolute;
-    bottom: 89%;
-    left: 95.5%;
+    bottom: 90%;
+    left: 95.3%;
     width: 0px;
     
+}
+
+.message.received::after {
+    content: '';
+    height: 10px;
+    border-width: 10px 13px 3px 1px;
+    border-style: solid;
+    border-color: transparent white transparent transparent;
+    border-radius: 0px 4px 0px 0px;
+    position: absolute;
+    bottom: 89%;
+    right: 95.3%;
+    width: 0px;
+    transform: scaleX(-1);
 }
 
 .message-time {
