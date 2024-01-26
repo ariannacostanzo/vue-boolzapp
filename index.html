@@ -107,7 +107,9 @@
                 <div v-for="message in filteredMessages" class="message" :class="isSent(message.status) ? 'sent' : 'received'" :key="message.id" @click="showDelete(message)">
                     <i class="fa-solid fa-angle-down arrow-menu"></i>
                     <p class="message-text" v-html="message.text"></p>
-                    <p class="message-time">{{message.date}} <span v-show="message.status === 'sent'" class="double-check message-checked"><i class="fa-solid fa-check"></i><i class="fa-solid fa-check"></i></span></p>
+                    <p class="message-time">{{message.date}} 
+                        <span v-show="message.status === 'sent'" class="double-check message-checked"><i class="fa-solid fa-check"></i><i class="fa-solid fa-check"></i></span>
+                    </p>
                     <div v-show="checkIdMessage(message.id)" class="delete-container">
                         <p>Info messaggio</p>
                         <p @click="deleteMessage(message.id)">Cancella messaggio</p>
@@ -121,15 +123,19 @@
                             Info messaggio
                         </div>
                     </header>
-                    x info messaggio(stesso bd di header)
-                    qua va lo sfondo
-                    il messaggio
-                    qui si ritorna al bg colorato, stesso di header
-                    double check letto
-                    oggi alle 15.32
-                    hr
-                    double check grigie consegnato
-                    oggi alle 15.30
+                    <div id="info-message-background">il messaggio</div>
+                    <div id="info-message-checked">
+                        <span class="double-check message-checked"><i class="fa-solid fa-check"></i><i class="fa-solid fa-check"></i></span>
+                        <span class="ms-3">Letto</span>
+                        <p>Oggi alle 15:05</p>
+                        <hr>
+                        <span class="double-check"><i class="fa-solid fa-check"></i><i class="fa-solid fa-check"></i></span>
+                        <span class="ms-3">Consegnato</span>
+                        <p>Oggi alle 15:05</p>
+                        
+                    </div>
+                    
+                    
 
                 </div>
 
