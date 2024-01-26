@@ -20,6 +20,8 @@ const app = createApp ({
             replies: ['Ok', 'ma stai bene', 'ho conosciuto un ragazzo troppo simpatico', 'come stai?', 'Laura mi ha scritto', 'tutto ok?', 'ok...', 'Va bene', 'Boh ok','💓💓💓','💛💛','Veramente?', 'Non va bene', 'okok', 'ma che dici?', 'non voglio parlare con te adesso', '🌞','😄','sei insopportabile', 'Mi presti 10 euro?', '🤣🤣','vuoi uscire stasera?' ,'🥰🥰🥰🥰🥰🥰🥰', 'ti va una pizza?', 'ho fame', '😋😋😋😋😋😋😋','nerdiamo?', 'ci vediamo una serie nuova assieme?','😑😑😑😑😑😑😑','☹️☹️☹️☹️☹️☹️☹️☹️☹️☹️'],
             emojis: ['💘','💝','💖','💗','💓','💞','💕','💟','❣️','💔','❤️','🧡','💛','💚','💙','💜','🤎','🖤','🤍','❤️‍','🔥','❤️‍','🌜️','☀️','🌝','🌞','🪐','💫','⭐️','😀','😃','😄','😁','😆','😅','🤣','😂','🙂','🙃','😉','😊','😇','🥰','😍','🤩','😘','😗','☺️','😚','😙','😋','😛','😜','🤪','😝','🤑','🤗','🤭','🤫','🤔','🤐','🤨','😐️','😑','😶','😏','😒','🙄','😬','🤥','😌','😔','😪','😮‍','💨','🤤','😴','😷','🤒','🤕','🤢','🤮','🤧','🥵','🥶','😶‍','🌫️','🥴','😵‍','💫','😵','🤯','🤠','🥳','😎','🤓','🧐','😕','😟','🙁','☹️','😮','😯','😲','😳','🥺','😦','😧','😨','😰','😥','😢','😭','😱','😖','😣','😞','😓','😩','😫','🥱','😤'],
             showEmpty: false,
+            showFilter: false,
+            filterMessage: '',
         }
     },
     computed: {
@@ -47,7 +49,7 @@ const app = createApp ({
         //array di messaggio che mostro per filtrarli
         filteredMessages() {
             return this.messages.filter((message) => {
-                return message
+                if (message.text.includes(this.filterMessage)) return message
             })
         }
         
@@ -99,7 +101,6 @@ const app = createApp ({
         },
         //funzione per inviare un nuovo messaggio, dopo 3 secondi mi arriva un messaggio
         sendMessage() {
-            
 
             this.addMessage(this.textSent, 'sent')
             //svuoto il campo
@@ -118,8 +119,7 @@ const app = createApp ({
         setFullNumbers(value) {
             return value.toString().padStart(2, '0')
         },
-        //funzione che uso per mostrare l'ultimo messaggio che non supera i 95 caratteri(perchè poi aumentano
-        //la dimensione della casella contatti) oppure se non ho messaggi mi ritorna niente
+        //funzione che uso per mostrare l'ultimo messaggio 
         cutMessage(contact) {
             if (contact.messages.length) {
                 const lastMessageStatus = contact.messages[contact.messages.length - 1].status
@@ -139,11 +139,12 @@ const app = createApp ({
                 
                 return lastMessage
             } else {
+                //se non ci sono messaggi non vedo niente
                 return ''
             }
             
         }, 
-        //mostro la data dell'ultimo messaggio oppure se non ho messaggi mostro oggi
+        //mostro la data dell'ultimo messaggio oppure se non ho messaggi mostro oggi oppure niente
         showDate(contact, testo) {
             if (contact.messages.length) {
                 
@@ -166,10 +167,6 @@ const app = createApp ({
                 if (id === item.id) this.messages.splice(i, 1)
             })
             
-        },
-        //premendo la x pulisco il filtro contatti
-        clearFilter() {
-            this.filteredName = ''
         },
         //Se l'utente è quello della chat mostrata e is writing è vero spunta sennò spunta l'ultimo messaggio(o niente se non ci sono messaggi)
         showIsWriting(id, cont) {

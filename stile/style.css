@@ -268,9 +268,19 @@ input:focus-visible {
     
 }
 
+/* header  */
+
 input[type="file"] {
     display: none;
     
+}
+
+#message-filter {
+    width: 200px;
+    margin-right: 1rem;
+    height: 25px;
+    font-size: .8rem;
+    padding-left: 10px;
 }
 
 
