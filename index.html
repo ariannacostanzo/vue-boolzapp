@@ -86,7 +86,7 @@
                 <div class="header-icons position-relative">
                     <i class="fa-solid fa-magnifying-glass"></i>
                     <label for='image-upload' >
-                        <input type="file" id="image-upload" accept="image/png, image/jpeg, image/jpg" >
+                        <input type="file" id="image-upload" accept="image/png, image/jpeg, image/jpg" @change="previewFiles">
                         <i class="fa-solid fa-paperclip"></i>
                     </label>
                     
@@ -100,7 +100,7 @@
             <section id="current-chat-container">
                 
                 <div v-for="message in filteredMessages" class="message" :class="isSent(message.status) ? 'sent' : 'received'" :key="message.id" @click="showDelete(message)">
-                    <p class="message-text">{{message.text}}</p>
+                    <p class="message-text" v-html="message.text"></p>
                     <p class="message-time">{{message.date}}</p>
                     <div v-show="checkIdMessage(message.id)" class="delete-container">
                         <p>Info messaggio</p>

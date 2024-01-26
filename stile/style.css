@@ -325,6 +325,11 @@ input[type="file"] {
     background-color: #e9ebeb;
 }
 
+.sent-image {
+    max-width: 100%;
+    margin-bottom: .2rem;
+}
+
 /* footer */
 
 

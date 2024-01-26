@@ -35,16 +35,7 @@ const app = createApp ({
             const currentContact = this.currentContact;
             return currentContact.messages
         },
-        //ritorna una data di ora in formato 01/01/2024 01:01:01
-        // currentDate() {
-        //     let currentFullDate = ''
-        //     const now = new Date;
-        //     const currentDate = `${this.setFullNumbers(now.getDate())}/${this.setFullNumbers(now.getMonth() + 1)}/${now.getFullYear()}`;
-        //     const currentTime = `${this.setFullNumbers(now.getHours())}:${this.setFullNumbers(now.getMinutes())}:${this.setFullNumbers(now.getSeconds())}`;
-        //     currentFullDate = `${currentDate} ${currentTime}`
-        //     return currentFullDate
-
-        // },
+        
         //array che mostro per filtrare i contatti
         filteredContacts() {
             return this.contacts.filter((contact) => {
@@ -187,6 +178,13 @@ const app = createApp ({
         //toggla svuota la chat
         toggleEmpty() {
             this.showEmpty = !this.showEmpty
+        },
+        previewFiles(event) {
+            const fileName = (event.target.files[0]).name
+            console.log(fileName);
+            const img = `<img src="img/${fileName}" class='sent-image'>`
+            this.addMessage(img, 'sent')
+            
         }
     }
 
