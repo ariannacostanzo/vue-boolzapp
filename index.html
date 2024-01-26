@@ -60,7 +60,7 @@
                         <div class="contact-info">
                             <p class="user-name">{{contact.name}}</p>
                             <!-- <p class="last-message" :class="isWriting ? 'writing' : ''">{{ isWriting ? 'Sta scrivendo...' : cutMessage(contact) }}</p> -->
-                            <p class="last-message" :class="showIsWritingClass(contact.id)">{{ showIsWriting(contact.id, contact)}}</p>
+                            <p class="last-message" :class="showIsWritingClass(contact.id)" v-html="showIsWriting(contact.id, contact)"></p>
                             <!-- <p class="last-message">{{cutMessage(contact)}}</p> -->
                         </div>
                         <p class="last-date">{{showDate(contact, '')}}</p>
@@ -135,3 +135,5 @@
 <!-- al click della lente di ingrandimento fare apparire un input cojn cui filtrare i messaggi -->
 <!-- mettere solo l'orario se il messaggio è di oggi -->
 <!-- info messaggio apre un nuovo div a destra, restringendo la chat dove c'è riprodotto visto e consegnato -->
+<!-- scrivere se mandi tu l'ultimo messaggio tu: -->
+<!-- se è una foto foto -->

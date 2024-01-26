@@ -17,7 +17,7 @@ const app = createApp ({
             messageIdShown: 0,
             isShown: false,
             isWriting: false,
-            replies: ['Ok', 'ok...', 'Va bene', 'Boh ok','💓💓💓','💛💛','Veramente?', 'Non va bene', 'okok', 'ma che dici?', 'non voglio parlare con te adesso', '🌞','😄','sei insopportabile', 'Mi presti 10 euro?', '🤣🤣','vuoi uscire stasera?' ,'🥰🥰🥰🥰🥰🥰🥰', 'ti va una pizza?', 'ho fame', '😋😋😋😋😋😋😋','nerdiamo?', 'ci vediamo una serie nuova assieme?','😑😑😑😑😑😑😑','☹️☹️☹️☹️☹️☹️☹️☹️☹️☹️'],
+            replies: ['Ok', 'ma stai bene', 'ho conosciuto un ragazzo troppo simpatico', 'come stai?', 'Laura mi ha scritto', 'tutto ok?', 'ok...', 'Va bene', 'Boh ok','💓💓💓','💛💛','Veramente?', 'Non va bene', 'okok', 'ma che dici?', 'non voglio parlare con te adesso', '🌞','😄','sei insopportabile', 'Mi presti 10 euro?', '🤣🤣','vuoi uscire stasera?' ,'🥰🥰🥰🥰🥰🥰🥰', 'ti va una pizza?', 'ho fame', '😋😋😋😋😋😋😋','nerdiamo?', 'ci vediamo una serie nuova assieme?','😑😑😑😑😑😑😑','☹️☹️☹️☹️☹️☹️☹️☹️☹️☹️'],
             emojis: ['💘','💝','💖','💗','💓','💞','💕','💟','❣️','💔','❤️','🧡','💛','💚','💙','💜','🤎','🖤','🤍','❤️‍','🔥','❤️‍','🌜️','☀️','🌝','🌞','🪐','💫','⭐️','😀','😃','😄','😁','😆','😅','🤣','😂','🙂','🙃','😉','😊','😇','🥰','😍','🤩','😘','😗','☺️','😚','😙','😋','😛','😜','🤪','😝','🤑','🤗','🤭','🤫','🤔','🤐','🤨','😐️','😑','😶','😏','😒','🙄','😬','🤥','😌','😔','😪','😮‍','💨','🤤','😴','😷','🤒','🤕','🤢','🤮','🤧','🥵','🥶','😶‍','🌫️','🥴','😵‍','💫','😵','🤯','🤠','🥳','😎','🤓','🧐','😕','😟','🙁','☹️','😮','😯','😲','😳','🥺','😦','😧','😨','😰','😥','😢','😭','😱','😖','😣','😞','😓','😩','😫','🥱','😤'],
             showEmpty: false,
         }
@@ -64,7 +64,7 @@ const app = createApp ({
         //     return currentFullDate
 
         // },
-        //nuovo modo più simile a wh web, mostro solo l'ora e i minuti dei nuovi messaggi
+        //nuovo modo più simile a whatsapp, mostro solo l'ora e i minuti dei nuovi messaggi
         currentDate() {
             let currentFullDate = ''
             const now = new Date;
@@ -123,6 +123,9 @@ const app = createApp ({
         cutMessage(contact) {
             if (contact.messages.length) {
                 const lastMessage = contact.messages[contact.messages.length - 1].text
+                if (lastMessage.includes('<img src=')) {
+                    return '<i class="fa-solid fa-image"></i> Foto'
+                }
                 const cutMessage = lastMessage.slice(0, 95) + '...'
                 return cutMessage
             } else {
@@ -194,7 +197,6 @@ const app = createApp ({
         //ottengo il nome del file scelto e lo invio come immagine
         previewFiles(event) {
             const fileName = (event.target.files[0]).name
-            console.log(fileName);
             const img = `<img src="img/${fileName}" class='sent-image'>`
             this.textSent = img
             this.sendMessage()
