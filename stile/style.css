@@ -223,6 +223,7 @@ input:focus-visible {
 .last-message {
     color: grey;
     font-size: .9rem;
+    word-break: break-word;
 }
 
 

@@ -122,12 +122,22 @@ const app = createApp ({
         //la dimensione della casella contatti) oppure se non ho messaggi mi ritorna niente
         cutMessage(contact) {
             if (contact.messages.length) {
-                const lastMessage = contact.messages[contact.messages.length - 1].text
-                if (lastMessage.includes('<img src=')) {
-                    return '<i class="fa-solid fa-image"></i> Foto'
-                }
-                const cutMessage = lastMessage.slice(0, 95) + '...'
-                return cutMessage
+                const lastMessageStatus = contact.messages[contact.messages.length - 1].status
+                let lastMessage = contact.messages[contact.messages.length - 1].text
+                
+                //se il messaggio è più lungo di un tot aggiungo ... per fare vedere che lo sto tagliando
+                if (lastMessage.length > 35) {
+                    lastMessage = lastMessage.slice(0, 36);
+                    lastMessage += '...'
+                } 
+
+                //se l'ultimo messaggio è una foto mostra l'icona di foto e foto
+                if (lastMessage.includes('<img src=')) lastMessage = '<i class="fa-solid fa-image"></i> Foto'
+
+                //se l'ultimo messaggio è uno inviato spunta tu: messaggio
+                if (lastMessageStatus === 'sent') return `Tu: ${lastMessage}`
+                
+                return lastMessage
             } else {
                 return ''
             }
