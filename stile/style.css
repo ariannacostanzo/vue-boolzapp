@@ -431,6 +431,7 @@ input[type="file"] {
 
 #info-message-background {
     background-image: url(/img/mine.jpg);
+    padding: 2rem;
 }
 
 #info-message-checked {

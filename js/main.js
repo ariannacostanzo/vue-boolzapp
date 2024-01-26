@@ -14,7 +14,7 @@ const app = createApp ({
             userID: 1,
             textSent: '',
             filteredName: '',
-            messageIdShown: 0,
+            messageIdShown: 1,
             isShown: false,
             isWriting: false,
             replies: ['Ok', 'ma stai bene', 'ho conosciuto un ragazzo troppo simpatico', 'come stai?', 'Laura mi ha scritto', 'tutto ok?', 'ok...', 'Va bene', 'Boh ok','💓💓💓','💛💛','Veramente?', 'Non va bene', 'okok', 'ma che dici?', 'non voglio parlare con te adesso', '🌞','😄','sei insopportabile', 'Mi presti 10 euro?', '🤣🤣','vuoi uscire stasera?' ,'🥰🥰🥰🥰🥰🥰🥰', 'ti va una pizza?', 'ho fame', '😋😋😋😋😋😋😋','nerdiamo?', 'ci vediamo una serie nuova assieme?','😑😑😑😑😑😑😑','☹️☹️☹️☹️☹️☹️☹️☹️☹️☹️'],
@@ -53,7 +53,7 @@ const app = createApp ({
                 if (message.text.includes(this.filterMessage)) return message
             })
         },
-        currentMessageInfo () {
+        currentMessage () {
             return this.messages.find((message) => {
                 if(message.id === this.messageIdShown) {
                     return message

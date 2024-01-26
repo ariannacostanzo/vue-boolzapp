@@ -124,7 +124,14 @@
                         </div>
                     </header>
                     <div id="info-message-background">
-                        <div class="message" :class="isSent(message.status) ? 'sent' : 'received'"></div>
+                        <div class="message" :class="isSent(currentMessage.status) ? 'sent' : 'received'">
+                            <i class="fa-solid fa-angle-down arrow-menu"></i>
+                            <p class="message-text" v-html="currentMessage.text"></p>
+                            <p class="message-time">
+                                {{currentMessage.date}} 
+                                <span v-show="currentMessage.status === 'sent'" class="double-check message-checked"><i class="fa-solid fa-check"></i><i class="fa-solid fa-check"></i></span>
+                            </p>
+                        </div>
                     </div>
                     <div id="info-message-checked">
                         <span class="double-check message-checked"><i class="fa-solid fa-check"></i><i class="fa-solid fa-check"></i></span>
@@ -165,3 +172,4 @@
 <!-- info messaggio apre un nuovo div a destra, restringendo la chat dove c'è riprodotto visto e consegnato -->
 <!-- al click del microfono spunta un div che sovrasta tutto il footer con cestino, secondi che aumentano, onde che aumentano, stop e invio -->
 <!-- cambiare foto con i miei amici -->
+<!-- info messaggio si sballa se c'è la scrollbar -->
