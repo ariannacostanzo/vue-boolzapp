@@ -107,7 +107,7 @@
                 <div v-for="message in filteredMessages" class="message" :class="isSent(message.status) ? 'sent' : 'received'" :key="message.id" @click="showDelete(message)">
                     <i class="fa-solid fa-angle-down arrow-menu"></i>
                     <p class="message-text" v-html="message.text"></p>
-                    <p class="message-time">{{message.date}} <span class="double-check message-checked"><i class="fa-solid fa-check"></i><i class="fa-solid fa-check"></i></span></p>
+                    <p class="message-time">{{message.date}} <span v-show="message.status === 'sent'" class="double-check message-checked"><i class="fa-solid fa-check"></i><i class="fa-solid fa-check"></i></span></p>
                     <div v-show="checkIdMessage(message.id)" class="delete-container">
                         <p>Info messaggio</p>
                         <p @click="deleteMessage(message.id)">Cancella messaggio</p>
