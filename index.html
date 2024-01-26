@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Arianna Costanzo">
     <title>Boolzapp</title>
+    <link rel="icon" href="img/icon.png">
     <!-- bootstraap -->
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css' integrity='sha512-b2QcS5SsA8tZodcDtGRELiGv5SaKSk1vDHDaQRda0htPYWZ6046lr3kJ5bAAQdpV2mmA/4v0wQF9MyU6/pDIAg==' crossorigin='anonymous'/>
     <!-- fontawesome -->
@@ -104,6 +105,7 @@
             <section id="current-chat-container">
                 
                 <div v-for="message in filteredMessages" class="message" :class="isSent(message.status) ? 'sent' : 'received'" :key="message.id" @click="showDelete(message)">
+                    <i class="fa-solid fa-angle-down arrow-menu"></i>
                     <p class="message-text" v-html="message.text"></p>
                     <p class="message-time">{{message.date}}</p>
                     <div v-show="checkIdMessage(message.id)" class="delete-container">
@@ -114,13 +116,12 @@
                 
                 
 
-
             </section>
             <!-- footer -->
             <footer>
                 <div class="footer-icon"><i class="fa-regular fa-face-smile" @click="printEmoji"></i></div>
                 <div class="footer-new-text"><input type="text" placeholder="Scrivi un messaggio" autofocus v-model="textSent" @keyup.enter="sendMessage"></div>
-                <div class="footer-icon"><i class="fa-solid fa-microphone"></i></div>
+                <div class="footer-icon"><i class="fa-solid fa-microphone" ></i></div>
             </footer>
             
 
@@ -136,5 +137,6 @@
 
 <!-- sistemare la scrollbar di sinistra -->
 <!-- fare qualcosa per info messaggio -->
-<!-- al click della lente di ingrandimento fare apparire un input cojn cui filtrare i messaggi -->
 <!-- info messaggio apre un nuovo div a destra, restringendo la chat dove c'è riprodotto visto e consegnato -->
+<!-- al click del microfono spunta un div che sovrasta tutto il footer con cestino, secondi che aumentano, onde che aumentano, stop e invio -->
+<!-- cambiare foto con i miei amici -->
