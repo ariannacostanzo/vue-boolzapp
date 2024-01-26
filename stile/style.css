@@ -504,3 +504,11 @@ footer {
     }
 
 }
+
+@media screen and (max-width:991px) {
+    
+    #right-container {
+        display: none;
+    }
+
+}
