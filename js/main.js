@@ -90,6 +90,7 @@ const app = createApp ({
         //funzione per inviare un nuovo messaggio, dopo 3 secondi mi arriva un messaggio
         sendMessage() {
             
+
             this.addMessage(this.textSent, 'sent')
             //svuoto il campo
             this.textSent =''
@@ -183,8 +184,9 @@ const app = createApp ({
             const fileName = (event.target.files[0]).name
             console.log(fileName);
             const img = `<img src="img/${fileName}" class='sent-image'>`
-            this.addMessage(img, 'sent')
-            
+            this.textSent = img
+            this.sendMessage()
+            this.textSent = ''
         }
     }
 
