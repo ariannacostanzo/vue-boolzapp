@@ -23,6 +23,7 @@ const app = createApp ({
             showFilter: false,
             filterMessage: '',
             showInfo: false,
+            seconds: 0
         }
     },
     computed: {
@@ -229,6 +230,14 @@ const app = createApp ({
             this.sendMessage()
             this.textSent = ''
         },
+        //funzione che aumenta i secondi durante la registrazione
+        timeRunning() {
+            const timeRunning = setInterval(() =>{
+                this.seconds++
+                seconds = this.setFullNumbers(this.seconds)
+                console.log(seconds)
+            }, 1000)
+        }
         
         
     }
