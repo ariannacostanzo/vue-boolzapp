@@ -23,7 +23,9 @@ const app = createApp ({
             showFilter: false,
             filterMessage: '',
             showInfo: false,
-            seconds: 0
+            seconds: 0,
+            minutes: 0,
+            timer: ''
         }
     },
     computed: {
@@ -232,11 +234,21 @@ const app = createApp ({
         },
         //funzione che aumenta i secondi durante la registrazione
         recording() {
-            const timeRunning = setInterval(() =>{
-                this.seconds++
-                seconds = this.setFullNumbers(this.seconds)
-                console.log(seconds)
-            }, 1000)
+            const recording = setInterval(() => {
+                this.seconds++;
+            
+                // se secondi arriva a 60 aumentano i minuti
+                if (this.seconds === 60) {
+                    this.seconds = 0;
+                    this.minutes++;
+                }
+            
+                const formattedSeconds = this.setFullNumbers(this.seconds);
+                const formattedMinutes = this.setFullNumbers(this.minutes);
+            
+                this.timer = formattedMinutes + ':' + formattedSeconds;
+            
+            }, 1000);
         }
         
         
@@ -252,27 +264,27 @@ app.mount('#root');
 
 
 
-const setFullNumbers = (value) => {
-    return value.toString().padStart(2, '0');
-}
+// const setFullNumbers = (value) => {
+//     return value.toString().padStart(2, '0');
+// }
 
-const div = document.getElementById('prova')
+// const div = document.getElementById('prova')
 
-let minutes = 0;
-let seconds = 0;
+// let minutes = 0;
+// let seconds = 0;
 
-setInterval(() => {
-    seconds++;
+// setInterval(() => {
+//     seconds++;
 
-    // se secondi arriva a 60 aumentano i minuti
-    if (seconds === 60) {
-        seconds = 0;
-        minutes++;
-    }
+//     // se secondi arriva a 60 aumentano i minuti
+//     if (seconds === 60) {
+//         seconds = 0;
+//         minutes++;
+//     }
 
-    const formattedSeconds = setFullNumbers(seconds);
-    const formattedMinutes = setFullNumbers(minutes);
+//     const formattedSeconds = setFullNumbers(seconds);
+//     const formattedMinutes = setFullNumbers(minutes);
 
-    div.innerText = formattedMinutes + ':' + formattedSeconds;
+//     div.innerText = formattedMinutes + ':' + formattedSeconds;
 
-}, 1000);
+// }, 1000);
