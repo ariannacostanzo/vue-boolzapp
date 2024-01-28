@@ -529,7 +529,8 @@ footer {
     gap: 2px;
     overflow: hidden;
     width: 250px;
-    
+    position: relative;
+    justify-content: flex-end;
 }
 
 .wave {
@@ -537,7 +538,8 @@ footer {
     /* height: 5px; */
     background-color: #7e7c7c;
     border-radius: 5px;
-    transition: transform 0.5s ease;
+    transition: transform 1s ease;
+    
 }
 
 /* media query */

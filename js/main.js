@@ -28,7 +28,6 @@ const app = createApp ({
             timer: '00:00',
             isRecording: false,
             recordingInterval: null,
-            initialOffset: 250,
             waves: [],
         }
     },
@@ -243,6 +242,7 @@ const app = createApp ({
             this.recordingInterval = setInterval(() => {
                 this.seconds++;
                 this.populatingWaves()
+
                 // se secondi arriva a 60 aumentano i minuti
                 if (this.seconds === 60) {
                     this.seconds = 0;
@@ -263,6 +263,7 @@ const app = createApp ({
             this.runningTimer()
             
         },
+        //ferma il timer e resetta tutti i valori
         stopRecording() {
 
             this.isRecording = false;
@@ -270,11 +271,13 @@ const app = createApp ({
             this.seconds = 0;
             this.minutes = 0;
             this.timer = '00:00';
-        
+            this.waves = []
         },
+        //da implementare
         pauseRecording() {
             clearInterval(this.recordingInterval)
         },
+        //aggiunge con l'aumento dei secondi un nuovo oggetto wave con random height
         populatingWaves() {
             const wave = {
                 height: this.getRandomNumber(5,35)
@@ -282,6 +285,13 @@ const app = createApp ({
 
             this.waves.push(wave)
             console.log(wave)
+            this.deletingWaves()
+        },
+        //elimina dall'array la prima wave se ce ne sono un tot
+        deletingWaves() {
+            if (this.waves.length > 30) {
+                this.waves.shift()
+            }
         }
         
         
