@@ -289,7 +289,7 @@ const app = createApp ({
         },
         //elimina dall'array la prima wave se ce ne sono un tot
         deletingWaves() {
-            if (this.waves.length > 30) {
+            if (this.waves.length > 36) {
                 this.waves.shift()
             }
         }
