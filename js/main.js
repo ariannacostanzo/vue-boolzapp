@@ -289,16 +289,16 @@ const app = createApp ({
         },
         //elimina dall'array la prima wave se ce ne sono un tot
         deletingWaves() {
-            if (this.waves.length > 40) {
+            if (this.waves.length > 39) {
                 this.waves.shift()
             }
         },
         sendingAudio() {
             let message = '<div class="waves"><i class="fa-solid fa-play play-audio"></i>'
-            this.waves.forEach((wave) => {
-                if (this.waves.length < 15) {
-                    console.log('aggiungi')
-                }
+            while (this.waves.length < 39) {
+                this.populatingWaves()
+            }
+            this.waves.forEach((wave) => {  
                 message += `
                 <div class="wave" style="height:${wave.height}px"></div>
                 `
