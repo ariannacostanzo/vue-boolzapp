@@ -470,6 +470,7 @@ footer {
     display: flex;
     align-items: center;
     width: 100%;
+    
 }
 
 .footer-icon {
@@ -494,14 +495,11 @@ footer {
     border-radius: 5px;
     text-indent: 10px;
 
-    /* per ora */
-    /* display: none; */
 }
 
 #recording-div {
-    /* da cambiare */
-    /* background-color: red; */
     margin-left: 20%;
+    
 
 }
 

@@ -25,8 +25,9 @@ const app = createApp ({
             showInfo: false,
             seconds: 0,
             minutes: 0,
-            timer: '',
+            timer: '00:00',
             isRecording: false,
+            recordingInterval: null,
         }
     },
     computed: {
@@ -233,12 +234,8 @@ const app = createApp ({
             this.sendMessage()
             this.textSent = ''
         },
-        //funzione che aumenta i secondi durante la registrazione
-        recording() {
-
-            this.isRecording = true;
-
-            const recording = setInterval(() => {
+        runningTimer() {
+            this.recordingInterval = setInterval(() => {
                 this.seconds++;
             
                 // se secondi arriva a 60 aumentano i minuti
@@ -253,6 +250,27 @@ const app = createApp ({
                 this.timer = formattedMinutes + ':' + formattedSeconds;
             
             }, 1000);
+        },
+        //funzione che aumenta i secondi durante la registrazione
+        recording() {
+
+            this.isRecording = true;
+            this.runningTimer()
+            
+        },
+        stopRecording() {
+
+            this.isRecording = false;
+            clearInterval(this.recordingInterval)
+            this.seconds = 0;
+            this.minutes = 0;
+            this.timer = '00:00';
+          
+            
+        },
+        pauseRecording() {
+            clearInterval(this.recordingInterval)
+            
         }
         
         
