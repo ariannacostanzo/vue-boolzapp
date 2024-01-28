@@ -294,7 +294,9 @@ const app = createApp ({
             }
         },
         sendingAudio() {
+            //inizializzo un messaggio
             let message = '<div class="waves"><i class="fa-solid fa-play play-audio"></i>'
+            //se l'audio è breve e ci sono poche waves le creo così da riempire il messaggio
             while (this.waves.length < 39) {
                 this.populatingWaves()
             }
@@ -306,6 +308,7 @@ const app = createApp ({
 
             message += '</div>'
             this.textSent = message
+            //invio il messaggio con le waves e fermo la registrazione con tutte le conseguenze
             this.sendMessage(this.textSent, 'sent')
             this.stopRecording()
         }
