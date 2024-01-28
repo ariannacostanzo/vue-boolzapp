@@ -162,12 +162,31 @@
                 
 
                 <!-- recording div -->
-                <div id="recording-div" class="d-flex align-items-center gap-4" v-if="isRecording">
-                    <i class="fa-solid fa-trash" @click="stopRecording"></i>
-                    <p >{{timer}}</p>
-                    <!-- <div>ondeeeeeeeeeeeeeeeeeeeeee</div> -->
-                    <i class="fa-solid fa-circle-pause" @click="pauseRecording"></i>
-                    <i class="fa-solid fa-paper-plane"></i>
+                <div id="recording-div" v-if="isRecording">
+                    <div class="d-flex align-items-center gap-3">
+                        <i class="fa-solid fa-trash" @click="stopRecording"></i>
+                        <p >{{timer}}</p>
+                    </div>
+                    <div id="waves">
+                        <div class="wave" :style="`transform: translateX(${initialOffset - (seconds*10)}px)`"></div>
+                        <div class="wave" :style="`transform: translateX(${initialOffset - (seconds*10)}px)`"></div>
+                        <div class="wave" :style="`transform: translateX(${initialOffset - (seconds*10)}px)`"></div>
+                        <div class="wave" :style="`transform: translateX(${initialOffset - (seconds*10)}px)`"></div>
+                        <div class="wave" :style="`transform: translateX(${initialOffset - (seconds*10)}px)`"></div>
+                        <div class="wave" :style="`transform: translateX(${initialOffset - (seconds*10)}px)`"></div>
+                        <div class="wave" :style="`transform: translateX(${initialOffset - (seconds*10)}px)`"></div>
+                        <div class="wave" :style="`transform: translateX(${initialOffset - (seconds*10)}px)`"></div>
+                        <div class="wave" :style="`transform: translateX(${initialOffset - (seconds*10)}px)`"></div>
+                        <div class="wave" :style="`transform: translateX(${initialOffset - (seconds*10)}px)`"></div>
+                        <div class="wave" :style="`transform: translateX(${initialOffset - (seconds*10)}px)`"></div>
+                        <div class="wave" :style="`transform: translateX(${initialOffset - (seconds*10)}px)`"></div>
+                        <div class="wave" :style="`transform: translateX(${initialOffset - (seconds*10)}px)`"></div>
+                        
+                    </div>
+                    <div class="d-flex align-items-center gap-3">
+                        <i class="fa-solid fa-circle-pause" @click="pauseRecording"></i>
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </div>
                 </div>
 
             </footer>

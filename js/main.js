@@ -28,6 +28,7 @@ const app = createApp ({
             timer: '00:00',
             isRecording: false,
             recordingInterval: null,
+            initialOffset: 250,
         }
     },
     computed: {
@@ -265,12 +266,14 @@ const app = createApp ({
             this.seconds = 0;
             this.minutes = 0;
             this.timer = '00:00';
-          
-            
+        
         },
         pauseRecording() {
             clearInterval(this.recordingInterval)
-            
+        },
+        moveWaves() {
+            const wave = document.querySelector('.wave');
+            wave.style.transform = `translate${this.seconds}`
         }
         
         
