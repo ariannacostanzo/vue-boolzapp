@@ -167,13 +167,13 @@
                         <i class="fa-solid fa-trash" @click="stopRecording"></i>
                         <p >{{timer}}</p>
                     </div>
-                    <div id="waves">
+                    <div class="waves">
                         <div v-for="wave in waves" class="wave" :style="`height:${wave.height}px`"></div>
                         
                     </div>
                     <div class="d-flex align-items-center gap-3">
                         <i class="fa-solid fa-circle-pause" @click="pauseRecording"></i>
-                        <i class="fa-solid fa-paper-plane"></i>
+                        <i class="fa-solid fa-paper-plane" @click="sendingAudio"></i>
                     </div>
                 </div>
 

@@ -276,7 +276,7 @@ const app = createApp ({
         //da implementare
         pauseRecording() {
             clearInterval(this.recordingInterval)
-            
+
         },
         //aggiunge con l'aumento dei secondi un nuovo oggetto wave con random height
         populatingWaves() {
@@ -292,8 +292,23 @@ const app = createApp ({
             if (this.waves.length > 40) {
                 this.waves.shift()
             }
+        },
+        sendingAudio() {
+            let message = '<div class="waves"><i class="fa-solid fa-play play-audio"></i>'
+            this.waves.forEach((wave) => {
+                if (this.waves.length < 15) {
+                    console.log('aggiungi')
+                }
+                message += `
+                <div class="wave" style="height:${wave.height}px"></div>
+                `
+            })
+
+            message += '</div>'
+            this.textSent = message
+            this.sendMessage(this.textSent, 'sent')
+            this.stopRecording()
         }
-        
         
     }
 

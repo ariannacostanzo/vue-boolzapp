@@ -398,6 +398,12 @@ input[type="file"] {
     color: #49b1d7;
 }
 
+.play-audio {
+    position: absolute;
+    left: 0;
+    top: 11px;
+}
+
 
 .delete-container {
     position: absolute;
@@ -523,7 +529,7 @@ footer {
     filter: brightness(1.2);
 }
 
-#waves {
+.waves {
     display: flex;
     align-items: center;
     gap: 2px;
