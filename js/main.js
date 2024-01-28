@@ -276,6 +276,7 @@ const app = createApp ({
         //da implementare
         pauseRecording() {
             clearInterval(this.recordingInterval)
+            
         },
         //aggiunge con l'aumento dei secondi un nuovo oggetto wave con random height
         populatingWaves() {
@@ -284,12 +285,11 @@ const app = createApp ({
             }
 
             this.waves.push(wave)
-            console.log(wave)
             this.deletingWaves()
         },
         //elimina dall'array la prima wave se ce ne sono un tot
         deletingWaves() {
-            if (this.waves.length > 36) {
+            if (this.waves.length > 40) {
                 this.waves.shift()
             }
         }
