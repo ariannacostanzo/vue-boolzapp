@@ -466,6 +466,11 @@ footer {
     position: relative;
 }
 
+.footer-chat {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
 
 .footer-icon {
     width: 80px;
@@ -495,10 +500,7 @@ footer {
 
 #recording-div {
     /* da cambiare */
-    position: absolute;
-    left: 0;
     /* background-color: red; */
-    bottom: 50%;
     margin-left: 20%;
 
 }

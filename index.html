@@ -149,7 +149,8 @@
             </section>
             <!-- footer -->
             <footer>
-                <div class="footer-icon"><i class="fa-regular fa-face-smile" @click="printEmoji"></i></div>
+                <div class="footer-chat" v-if="!isRecording">
+                    <div class="footer-icon"><i class="fa-regular fa-face-smile" @click="printEmoji"></i></div>
                 <div class="footer-new-text d-flex align-items-center">
                     <input type="text" placeholder="Scrivi un messaggio" autofocus v-model="textSent" @keyup.enter="sendMessage">
                     
@@ -157,12 +158,14 @@
                 <div class="footer-icon">
                     <i class="fa-solid fa-microphone" @click="recording"></i>
                 </div>
+                </div>
+                
 
                 <!-- recording div -->
-                <div id="recording-div" class="d-flex align-items-center gap-3">
+                <div id="recording-div" class="d-flex align-items-center gap-3" v-if="isRecording">
                     <i class="fa-solid fa-trash"></i>
                     <p >{{timer}}</p>
-                    <div>ondeeeeeeeeeeeeeeeeeeeeee</div>
+                    <!-- <div>ondeeeeeeeeeeeeeeeeeeeeee</div> -->
                     <i class="fa-solid fa-circle-pause"></i>
                     <i class="fa-solid fa-paper-plane"></i>
                 </div>
@@ -192,4 +195,5 @@
 <!-- se ho info messaggio aperto e cambio user mi mostra il primo messaggio di quell'user -->
 
 
-<!-- continuare recording: quando clicco il registratore questo sparisce, sparisce tutto quanto e rimane solo recording div -->
+<!-- continuare recording: quando clicco il registratore questo sparisce, sparisce tutto quanto e rimane solo recording div
+il registratore ha position absolute per ora perchè mi serve per vederlo e gestirlo -->
