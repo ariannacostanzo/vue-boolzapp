@@ -534,10 +534,10 @@ footer {
 
 .wave {
     width: 5px;
-    height: 5px;
+    /* height: 5px; */
     background-color: #7e7c7c;
     border-radius: 5px;
-    transition: 1s ease;
+    transition: transform 0.5s ease;
 }
 
 /* media query */

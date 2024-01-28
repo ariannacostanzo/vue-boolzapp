@@ -29,6 +29,7 @@ const app = createApp ({
             isRecording: false,
             recordingInterval: null,
             initialOffset: 250,
+            waves: [],
         }
     },
     computed: {
@@ -213,6 +214,9 @@ const app = createApp ({
             const randomNumber = Math.floor(Math.random() * (array.length))
             return array[randomNumber]
         },
+        getRandomNumber(min, max) {
+            return randomNumber = Math.floor(Math.random() * (max + 1 - min)) + min
+        },
         //al click prendo un emoji random e l'aggiungo al box per scrivere un messaggio
         printEmoji() {
             const randomEmoji = this.getRandom(this.emojis)
@@ -238,7 +242,7 @@ const app = createApp ({
         runningTimer() {
             this.recordingInterval = setInterval(() => {
                 this.seconds++;
-            
+                this.populatingWaves()
                 // se secondi arriva a 60 aumentano i minuti
                 if (this.seconds === 60) {
                     this.seconds = 0;
@@ -271,9 +275,13 @@ const app = createApp ({
         pauseRecording() {
             clearInterval(this.recordingInterval)
         },
-        moveWaves() {
-            const wave = document.querySelector('.wave');
-            wave.style.transform = `translate${this.seconds}`
+        populatingWaves() {
+            const wave = {
+                height: this.getRandomNumber(5,35)
+            }
+
+            this.waves.push(wave)
+            console.log(wave)
         }
         
         
