@@ -503,7 +503,7 @@ footer {
 }
 
 #recording-div {
-    margin-left: 35%;
+    margin-left: 32%;
     display: flex;
     align-items: center;
     gap: 30px;
@@ -547,6 +547,16 @@ footer {
     background-color: #7e7c7c;
     border-radius: 5px;
     
+}
+
+.blue-ball {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: #49b1d7;
+    border-radius: 50%;
+    left: 15px;
+    top: 10px;
 }
 
 /* media query */

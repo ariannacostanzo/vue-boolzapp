@@ -148,6 +148,9 @@ const app = createApp ({
                 //se l'ultimo messaggio è una foto mostra l'icona di foto e foto
                 if (lastMessage.includes('<img src=')) lastMessage = '<i class="fa-solid fa-image"></i> Foto'
 
+                //se l'ultimo messaggio è un audio mostra audio con microfono
+                if (lastMessage.includes('<div class="waves"'))lastMessage = '<i class="fa-solid fa-microphone message-checked"></i> Audio'
+                
                 //se l'ultimo messaggio è uno inviato spunta tu: messaggio
                 if (lastMessageStatus === 'sent') 
                 {return `<span class="double-check message-checked me-2"><i class="fa-solid fa-check"></i><i class="fa-solid fa-check"></i></span> Tu: ${lastMessage}`}
@@ -273,7 +276,6 @@ const app = createApp ({
             this.timer = '00:00';
             this.waves = []
         },
-        //da implementare
         pauseRecording() {
             clearInterval(this.recordingInterval)
 
@@ -295,7 +297,7 @@ const app = createApp ({
         },
         sendingAudio() {
             //inizializzo un messaggio
-            let message = '<div class="waves"><i class="fa-solid fa-play play-audio"></i>'
+            let message = '<div class="waves"><i class="fa-solid fa-play play-audio"></i><div class="blue-ball"></div>'
             //se l'audio è breve e ci sono poche waves le creo così da riempire il messaggio
             while (this.waves.length < 39) {
                 this.populatingWaves()
